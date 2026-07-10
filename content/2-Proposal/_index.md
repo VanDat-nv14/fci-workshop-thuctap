@@ -7,7 +7,6 @@ pre: " <b> 2. </b> "
 ---
 
 # Rookwork - Team Collaboration Management Software
-## A real-time team collaboration management system on a desktop platform
 
 ### 1. Project Overview
 In the context of the Industry 4.0 revolution and the growing trend of remote working and hybrid work, effective team management has become a critical factor for individuals, project teams, and businesses alike. **Rookwork** is an integrated, modern team collaboration management software designed to operate as a multi-platform application (browser and desktop app). The system uses a Client-Server architecture with a frontend built using **React 19**, which can be packaged as a desktop application using **Electron** for a seamless experience, alongside a robust backend built on **Spring Boot** combined with AWS services.
@@ -22,7 +21,7 @@ Many teams still face major challenges in collaboration and project management:
 ### 3. Solution Architecture (Workflow)
 The system operates on a distributed model within the AWS Cloud environment. The processing flow is structured as follows:
 
-![Rookwork Architecture](/images/2-Proposal/rookwork_architecture.jpg)
+![Rookwork Architecture](/images/2-Proposal/workflow.png)
 
 **1. Networking & Content Delivery Flow:**
 - All requests from users are resolved via **Amazon Route 53** (DNS Resolution).

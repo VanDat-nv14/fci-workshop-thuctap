@@ -5,9 +5,6 @@ weight: 3
 chapter: false
 pre: " <b> 5.3. </b> "
 ---
-
-# Initialize VPC, NAT Gateway and Security Groups
-
 In this step, we will set up the entire network infrastructure for the Rookwork project, consisting of 3 main parts:
 1. **Create the VPC** using the "VPC and more" feature
 2. **Create the NAT Gateway** for the Private Subnet to connect to the internet
@@ -45,13 +42,13 @@ In this step, we will set up the entire network infrastructure for the Rookwork 
 
 The right side of the screen will display a **Preview** of the VPC diagram containing 4 Subnets across 2 AZs.
 
-![Configure VPC and more – Name, CIDR, Subnets, and Preview](/images/aws-picture/vpc-1.png)
+![Configure VPC and more – Name, CIDR, Subnets, and Preview](/images/5-Workshop/5.3/vpc-1.png)
 
 - **NAT gateways**: Select `None` (we will create this manually in Part 2).
 - **VPC endpoints**: Select **`S3 Gateway`** to create a VPC Endpoint for connecting to S3 internally without going through the internet.
 - Keep **DNS options** at default:  Enable DNS hostnames and  Enable DNS resolution.
 
-![Configure NAT Gateway to None, VPC Endpoint to S3 Gateway, and DNS options](/images/aws-picture/vpc-2.png)
+![Configure NAT Gateway to None, VPC Endpoint to S3 Gateway, and DNS options](/images/5-Workshop/5.3/vpc-2.png)
 
 Click **Create VPC** to deploy.
 
@@ -89,7 +86,7 @@ The NAT Gateway allows resources in the **Private Subnet** (EC2 Backend) to down
 | **Connectivity type** | `Public` |
 | **Elastic IP allocation** | `Automatic` |
 
-![NAT Gateway Configuration – Name, Availability mode, VPC](/images/aws-picture/vpc-nat-1.png)
+![NAT Gateway Configuration – Name, Availability mode, VPC](/images/5-Workshop/5.3/vpc-nat-1.png)
 
 ---
 
@@ -98,7 +95,7 @@ The NAT Gateway allows resources in the **Private Subnet** (EC2 Backend) to down
 - Ensure the tag `Name = rookwork-nat` is filled in correctly.
 - Click **Create NAT gateway**.
 
-![Confirm Tags and click Create NAT gateway](/images/aws-picture/vpc-nat-2.png)
+![Confirm Tags and click Create NAT gateway](/images/5-Workshop/5.3/vpc-nat-2.png)
 
 ---
 
@@ -108,7 +105,7 @@ The NAT Gateway allows resources in the **Private Subnet** (EC2 Backend) to down
 - If it is still `Pending`, wait 1–2 minutes and refresh the page.
 
 > [!NOTE]
-> NAT Gateways are billed **per hour** and **per GB of data processed**. Remember to delete this resource after completing the lab in step [5.6 – Resource Cleanup](../5.6-Cleanup/).
+> NAT Gateways are billed **per hour** and **per GB of data processed**. Remember to delete this resource after completing the lab to avoid unexpected charges.
 
 ---
 
@@ -139,7 +136,7 @@ Security Groups act as **virtual firewalls** at the instance level. We create 3 
 
 **Outbound rules**: Keep default (All traffic). Click **Create security group**.
 
-![Create rookwork-alb-sg with Inbound HTTP/HTTPS from anywhere](/images/aws-picture/sg-alb-1.png)
+![Create rookwork-alb-sg with Inbound HTTP/HTTPS from anywhere](/images/5-Workshop/5.3/sg-alb-1.png)
 
 ---
 
@@ -156,7 +153,7 @@ Security Groups act as **virtual firewalls** at the instance level. We create 3 
 **Inbound rules**: Leave empty (to be added in Step 3).  
 **Outbound rules**: Keep default. Click **Create security group**.
 
-![Create backend-sg – Inbound empty, Outbound default](/images/aws-picture/sg-be-1.png)
+![Create backend-sg – Inbound empty, Outbound default](/images/5-Workshop/5.3/sg-be-1.png)
 
 ---
 
@@ -174,7 +171,7 @@ Once `rookwork-alb-sg` has been created and has a Security Group ID, return to e
 
 Click **Save rules**.
 
-![Inbound rules of backend-sg: Ports 8080 and 80 only from rookwork-alb-sg](/images/aws-picture/sg-be-2.png)
+![Inbound rules of backend-sg: Ports 8080 and 80 only from rookwork-alb-sg](/images/5-Workshop/5.3/sg-be-2.png)
 
 ---
 
@@ -202,7 +199,7 @@ To protect the database, we create a dedicated Security Group that only allows c
 
 Click **Save rules**.
 
-![Edit inbound rules of rds-ec2-1: PostgreSQL port 5432 only from ec2-rds-1 and backend-sg](/images/aws-picture/sg-rds-1.png)
+![Edit inbound rules of rds-ec2-1: PostgreSQL port 5432 only from ec2-rds-1 and backend-sg](/images/5-Workshop/5.3/sg-rds-1.png)
 
 ---
 

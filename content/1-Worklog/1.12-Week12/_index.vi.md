@@ -17,9 +17,9 @@ pre: " <b> 1.12. </b> "
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
 | 2 | - Hoàn thiện chi tiết báo cáo thực tập, rà soát lại các mục Worklog, Đề xuất (Proposal), Blog dịch thuật và Bài thu hoạch Sự kiện. | 06/07/2026 | 07/07/2026 | N/A |
-| 3 | - Phối hợp cùng nhóm Rookwork để đóng gói mã nguồn, viết tài liệu README, hướng dẫn triển khai (Deployment Guide) và bàn giao toàn bộ sản phẩm hạ tầng AWS. | 07/07/2026 | 08/07/2026 | N/A |
-| 4 | - Chuẩn bị tài liệu thuyết trình (Slide) và hoàn thiện các hồ sơ tài liệu báo cáo thực tập. | 08/07/2026 | 09/07/2026 | N/A |
-| 5 | - Thực hiện dọn dẹp và hủy bỏ toàn bộ các tài nguyên AWS còn lại trên các tài khoản sandbox/phát triển để đảm bảo không phát sinh chi phí ngoài ý muốn. | 09/07/2026 | 10/07/2026 | N/A |
+| 3 | - Phối hợp cùng nhóm Rookwork để đóng gói mã nguồn, viết tài liệu, hướng dẫn triển khai (Deployment Guide) và bàn giao toàn bộ sản phẩm hạ tầng AWS. | 07/07/2026 | 08/07/2026 | N/A |
+| 4 | - Thực hiện dọn dẹp và hủy bỏ toàn bộ các tài nguyên AWS còn lại trên các tài khoản sandbox/phát triển để đảm bảo không phát sinh chi phí ngoài ý muốn. | 08/07/2026 | 09/07/2026 | N/A |
+| 5 | - Chuẩn bị tài liệu và hoàn thiện các hồ sơ tài liệu báo cáo thực tập. | 09/07/2026 | 10/07/2026 | N/A |
 
 ### Kết quả đạt được tuần 12:
 

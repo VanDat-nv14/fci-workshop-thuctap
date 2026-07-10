@@ -1,45 +1,33 @@
 ---
-title: "Tổng quan"
-date: 2026-06-01
-weight: 1
-chapter: false
-pre: " <b> 5.1. </b> "
+title : "Giới thiệu"
+date : 2024-01-01 
+weight : 1
+chapter : false
+pre : " <b> 5.1. </b> "
 ---
 
-# Tổng quan Workshop – Triển khai hạ tầng mạng VPC cho Rookwork
+#### Tổng quan dự án
 
-## Mục tiêu
+**Rookwork** là phần mềm quản lý làm việc nhóm đa nền tảng (trình duyệt và ứng dụng desktop) được thiết kế để hỗ trợ cộng tác và quản lý dự án theo thời gian thực. Hệ thống sử dụng kiến trúc Client-Server hiện đại với frontend được phát triển bằng **React 19** và backend mạnh mẽ xây dựng trên nền tảng **Spring Boot**. Để đảm bảo tính sẵn sàng cao (HA), bảo mật nhiều lớp và phân phối nội dung mượt mà, toàn bộ hạ tầng được triển khai trên nền tảng **AWS Cloud**. Phần này sẽ cung cấp một cái nhìn toàn diện về cách các dịch vụ AWS được thiết kế để hỗ trợ các luồng công việc cốt lõi của ứng dụng, từ mạng và tính toán đến lưu trữ cơ sở dữ liệu và các dịch vụ dùng chung.
 
-Trong bài thực hành này, chúng ta sẽ triển khai một hệ thống mạng AWS VPC cơ bản có **tính sẵn sàng cao (High Availability)**. Đây là nền tảng hạ tầng mạng đã được áp dụng thực tế cho dự án nhóm **Rookwork** trong kỳ thực tập.
+#### Kiến trúc hệ thống
 
----
+![Rookwork AWS Architecture](/images/5-Workshop/5.1/rookwork_aws_architecture.jpg)
 
-## Kiến trúc hệ thống
+Hệ thống hoạt động theo các luồng xử lý chính sau:
 
-Kiến trúc hệ thống được đặt tại Region **Asia Pacific (Singapore) `ap-southeast-1`** và bao gồm các thành phần chính sau:
+#### 1 DNS Resolution & CDN:
+- **Route 53** phân giải tên miền, điều hướng người dùng đến hệ thống.
+- **CloudFront** phân phối frontend tĩnh từ **FE Static S3**, kết hợp **AWS WAF** để bảo vệ khỏi các tấn công web.
+#### 2 Routing & Compute Backend:
+- API traffic đi qua **Internet Gateway** → **ALB (Application Load Balancer)** → cân bằng tải đến các **EC2 instances** đặt trong *Private Subnet*.
+- EC2 truy cập internet outbound qua **NAT Gateway** (bước 6.1 — Route to Internet).
 
-| Thành phần | Chi tiết |
-| :--- | :--- |
-| **VPC** | Khởi tạo một Virtual Private Cloud để cô lập tài nguyên mạng |
-| **Availability Zones (AZs)** | Phân bổ tài nguyên trải dài trên 2 AZs (`ap-southeast-1a` và `ap-southeast-1b`) để đảm bảo High Availability |
-| **Subnets** | 4 subnets: **2 Public Subnets** (chứa Load Balancer, NAT Gateway) và **2 Private Subnets** (dành cho backend an toàn) |
-| **Internet Gateway** | `rookwork-igw` – Kết nối mạng public ra internet |
-| **NAT Gateway** | `rookwork-nat` – Cho phép mạng private ra internet một chiều |
-| **VPC Endpoint** | `rookwork-vpce-s3` – Kết nối nội bộ an toàn đến S3 (không qua internet) |
-| **Security Groups** | `rookwork-alb-sg` (cho ALB) và `backend-sg` (cho Backend EC2) |
+#### 3 Database & Storage:
+- Dữ liệu nghiệp vụ lưu trên **Amazon RDS PostgreSQL**, triển khai **Multi-AZ** (bước 7 — DB Replication) để dự phòng thảm họa.
+- File đính kèm được EC2 ghi vào **Amazon S3** qua **S3 Gateway Endpoint** theo Internal Routing (bước 8 & 9) — không đi qua internet, giảm chi phí băng thông về 0.
+- Người dùng tải file trực tiếp qua **Direct File Access** (bước 10).
 
----
-
-## Sơ đồ kiến trúc
-
-![Sơ đồ kiến trúc VPC Rookwork](/images/5-Workshop/5.1-Workshop-overview/vpc-architecture.png)
-
----
-
-## Các bước thực hành trong Workshop này
-
-1. **[5.2 – Điều kiện tiên quyết](../5.2-Prerequisite/):** Kiểm tra tài khoản và region làm việc.
-2. **[5.3 – Khởi tạo VPC và Subnets](../5.3-S3-vpc/):** Tạo toàn bộ hạ tầng mạng bằng chế độ "VPC and more".
-3. **[5.4 – Cấu hình NAT Gateway](../5.4-S3-onprem/):** Kiểm tra và xác nhận NAT Gateway hoạt động đúng.
-4. **[5.5 – Thiết lập Security Groups](../5.5-Policy/):** Tạo tường lửa ảo phân tầng cho ALB và Backend.
-5. **[5.6 – Dọn dẹp tài nguyên](../5.6-Cleanup/):** Xóa tài nguyên để tránh phát sinh chi phí.
+#### Shared Services:
+- **Amazon SES** gửi email thông báo (mời thành viên, v.v.) được trigger từ EC2 (bước 6.2 & 6.3).
+- **AWS Certificate Manager (ACM)** quản lý SSL/TLS, **AWS IAM** quản lý phân quyền toàn hệ thống.

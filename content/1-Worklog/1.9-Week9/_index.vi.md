@@ -16,7 +16,7 @@ pre: " <b> 1.9. </b> "
 ### Các công việc cần triển khai trong tuần này:
 | Thứ | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
 | --- | --- | --- | --- | --- |
-| 2 | - Phân tích yêu cầu và vẽ sơ đồ kiến trúc hạ tầng AWS chi tiết cho dự án nhóm "rookwork". | 15/06/2026 | 16/06/2026 | <https://000101.awsstudygroup.com/> |
+| 2 | - Phân tích yêu cầu và vẽ sơ đồ kiến trúc hạ tầng AWS chi tiết cho dự án nhóm "rookwork". | 15/06/2026 | 16/06/2026 | N/A |
 | 3 | - Khởi tạo và thiết lập cấu hình môi trường Production cho Backend, Frontend và Database (RDS) trên cloud. | 16/06/2026 | 17/06/2026 | <https://000021.awsstudygroup.com/> |
 | 4 | - Triển khai mã nguồn dự án lên hạ tầng Production thông qua quy trình CI/CD tự động. | 17/06/2026 | 18/06/2026 | <https://000023.awsstudygroup.com/> |
 | 5 | - Thực hiện cấu hình tên miền chính thức và cài đặt chứng chỉ SSL/TLS (HTTPS) để bảo mật hệ thống. | 18/06/2026 | 18/06/2026 | <https://000010.awsstudygroup.com/> |

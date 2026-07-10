@@ -1,45 +1,38 @@
 ---
-title: "Overview"
-date: 2026-06-01
-weight: 1
-chapter: false
-pre: " <b> 5.1. </b> "
+title : "Introduction"
+date : 2024-01-01 
+weight : 1 
+chapter : false
+pre : " <b> 5.1. </b> "
 ---
 
-# Workshop Overview – Deploying the VPC Network Infrastructure for Rookwork
+#### Project Overview
 
-## Objectives
+**Rookwork** is an integrated, multi-platform team collaboration management software (browser and desktop app) designed to facilitate real-time project management and team synchronization. The system utilizes a modern Client-Server architecture, featuring a **React 19** frontend and a robust **Spring Boot** backend. To ensure high availability (HA), security, and seamless content delivery, the entire infrastructure is deployed on **AWS Cloud**. This section provides a comprehensive look at how these AWS services are architected to support the application's core workflows, from networking and compute to database storage and shared services.
 
-In this hands-on lab, we will deploy a basic AWS VPC network system with **High Availability**. This is the actual network infrastructure applied to the **Rookwork** group project during the internship.
+#### System Architecture
+
+![Rookwork AWS Architecture](/images/5-Workshop/5.1/rookwork_aws_architecture.jpg)
+
+The system operates through the following main processing flows:
+
+**1 DNS Resolution & CDN:**
+- **Route 53** resolves the domain name and routes users to the system.
+- **CloudFront** distributes the static frontend from **FE Static S3**, combined with **AWS WAF** to protect against web exploits.
+
+**2 Routing & Compute Backend:**
+- API traffic flows through the **Internet Gateway** → **ALB (Application Load Balancer)** → load-balanced to **EC2 instances** placed inside *Private Subnets*.
+- EC2 accesses the internet for outbound calls via the **NAT Gateway** (step 6.1 — Route to Internet).
+
+**3 Database & Storage:**
+- Business data is stored on **Amazon RDS PostgreSQL**, deployed in a **Multi-AZ** setup (step 7 — DB Replication) for disaster recovery.
+- File attachments are written by EC2 to **Amazon S3** via the **S3 Gateway Endpoint** using Internal Routing (steps 8 & 9) — bypassing the public internet and reducing internal bandwidth costs to zero.
+- Users download files directly via **Direct File Access** (step 10).
+
+**4 Shared Services:**
+- **Amazon SES** delivers email notifications (e.g., workspace invitations) triggered from EC2 (steps 6.2 & 6.3).
+- **AWS Certificate Manager (ACM)** manages SSL/TLS certificates, and **AWS IAM** controls system-wide permissions.
 
 ---
 
-## System Architecture
-
-The system architecture is hosted in the **Asia Pacific (Singapore) `ap-southeast-1`** region and consists of the following key components:
-
-| Component | Details |
-| :--- | :--- |
-| **VPC** | Initialize a Virtual Private Cloud to isolate network resources |
-| **Availability Zones (AZs)** | Resources distributed across 2 AZs (`ap-southeast-1a` and `ap-southeast-1b`) for High Availability |
-| **Subnets** | 4 subnets: **2 Public Subnets** (for Load Balancer, NAT Gateway) and **2 Private Subnets** (for secure backend) |
-| **Internet Gateway** | `rookwork-igw` – Public network outbound internet access |
-| **NAT Gateway** | `rookwork-nat` – Allows private network one-way outbound internet access |
-| **VPC Endpoint** | `rookwork-vpce-s3` – Secure internal connection to S3 (bypassing public internet) |
-| **Security Groups** | `rookwork-alb-sg` (for ALB) and `backend-sg` (for Backend EC2) |
-
----
-
-## Architecture Diagram
-
-![VPC Rookwork Architecture Diagram](/images/5-Workshop/5.1-Workshop-overview/vpc-architecture.png)
-
----
-
-## Lab Steps in This Workshop
-
-1. **[5.2 – Prerequisites](../5.2-Prerequisite/):** Verify your account and working region.
-2. **[5.3 – Initialize VPC and Subnets](../5.3-S3-vpc/):** Create the entire network infrastructure using "VPC and more" mode.
-3. **[5.4 – Configure NAT Gateway](../5.4-S3-onprem/):** Verify the NAT Gateway is functioning correctly.
-4. **[5.5 – Set Up Security Groups](../5.5-Policy/):** Create layered virtual firewalls for ALB and Backend.
-5. **[5.6 – Resource Cleanup](../5.6-Cleanup/):** Delete resources to avoid unexpected charges.
+After understanding the system architecture, proceed to [5.2 — Prerequisite](../5.2-prerequiste/) to configure the required tools.

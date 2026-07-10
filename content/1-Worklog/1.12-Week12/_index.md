@@ -18,8 +18,8 @@ pre: " <b> 1.12. </b> "
 | --- | --- | --- | --- | --- |
 | 2 | - Finalize the detailed internship report, reviewing all sections including Worklogs, Proposal, Blogs, and Event Reflection. | 06/07/2026 | 07/07/2026 | N/A |
 | 3 | - Collaborate with the Rookwork team to package the source code, write README and deployment guides, and hand over all AWS resources. | 07/07/2026 | 08/07/2026 | N/A |
-| 4 | - Prepare presentation slides and complete the final internship report documents. | 08/07/2026 | 09/07/2026 | N/A |
-| 5 | - Clean up and delete all remaining AWS resources on sandbox and development accounts to avoid unexpected costs. | 09/07/2026 | 10/07/2026 | N/A |
+| 4 | - Clean up and delete all remaining AWS resources on sandbox and development accounts to avoid unexpected costs. | 08/07/2026 | 09/07/2026 | N/A |
+| 5 | - Prepare presentation slides and complete the final internship report documents. | 09/07/2026 | 10/07/2026 | N/A |
 
 ### Week 12 Achievements:
 

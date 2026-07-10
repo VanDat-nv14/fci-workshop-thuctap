@@ -11,38 +11,38 @@ Below are my personal thoughts and feedback after completing the **Workforce Boo
 ### Overall Evaluation
 
 **1. Working Environment**  
-The learning and working environment of First Cloud AI Journey is very friendly, open, and dynamic. Members of the administration team and fellow interns are always willing to help whenever I run into technical difficulties, even outside of official working hours. This comfortable and supportive environment kept me motivated to complete my labs and group projects.
+The learning and working environment at FCAJ is really friendly, open, and energetic. There is no distance between us; the admin team and fellow interns are all super helpful. Whenever I faced a configuration error or got stuck, I could just message the group and someone would support me quickly, even late at night or on weekends. The comfortable workspace also helped me focus on my labs much better.
 
 **2. Support from Mentor / Team Admin**  
-The mentors provide very detailed and enthusiastic guidance, encouraging us to think critically and solve problems independently before giving direct answers. The administrative team is highly responsive, providing necessary documentation and setting up the AWS lab accounts promptly so that we can gain hands-on cloud experience.
+My mentor was extremely dedicated. What I liked most was that he wouldn't just give the answers away; instead, he would suggest directions and guide us to think and debug by ourselves first. This helped me understand the root causes and remember the concepts much longer. The admin team also set up our AWS lab accounts quickly and supported us with all administrative procedures.
 
 **3. Relevance of Work to Academic Major**  
-The assigned tasks and the **Rookwork** group project align perfectly with my Information Technology major. The program not only reinforced my foundational knowledge in computer networks and operating systems learned at university but also introduced me to advanced cloud computing and DevOps practices that I had never encountered before.
+The **Rookwork** group project and labs are highly relevant to my IT major. At university, we mostly learned network and OS theories. Here, I got to configure things directly on the AWS Cloud and got hands-on experience with DevOps and CI/CD—which are highly practical skills for my future career.
 
 **4. Learning & Skill Development Opportunities**  
-Throughout the internship, in addition to technical AWS skills (VPC, Route Tables, NAT Gateway, Security Groups, S3, RDS), I also developed essential soft skills such as teamwork, writing standard technical documentation, task planning, and professional progress reporting.
+This internship really helped me level up. Besides learning AWS network designs (VPC, RDS, EC2), I also learned how to write clean technical documentation, collaborate effectively in a team, and organize tasks systematically.
 
 **5. Company Culture & Team Spirit**  
-The culture is highly positive and respectful. Team spirit was strongly demonstrated during our Rookwork group project: each member held specific responsibilities but remained ready to support one another, coordinating smoothly to integrate all system components successfully.
+Everyone respected each other's opinions. The Rookwork project was my first group project on the Cloud. Although each member was responsible for a specific part (VPC, Backend, Frontend), we coordinated smoothly and debugged together whenever integration issues popped up.
 
 **6. Internship Policies / Benefits**  
-The program provides fully funded AWS practice accounts, high-quality expert training sessions, and timely troubleshooting support. Having the opportunity to attend a major event like AWS Community Day 2026 was a major highlight of this internship.
+We were provided with AWS accounts for hands-on labs and attended high-quality training sessions with cloud experts. Being able to attend a major event like AWS Community Day 2026 was also a huge highlight for me.
 
 ---
 
 ### Additional Questions
 
 * **What did you find most satisfying during your internship?**  
-  * The most satisfying part was directly designing and configuring a secure, layered VPC network infrastructure for our Rookwork group project and seeing it run smoothly. I also deeply appreciate the continuous support from our mentors and the great teamwork within my group.
+  * The most satisfying part was directly designing and configuring a secure, layered VPC network infrastructure for our group project, and seeing it run smoothly. I also deeply appreciate the constant support from my mentor and the great team spirit within my group.
 * **What do you think the company should improve for future interns?**  
-  * The program could organize short introductory workshops or tutorials on system integration and collaborative workflows using Git/GitHub early in the first week to help interns sync up faster.
+  * It would be helpful if the program could host a short workshop on Git/GitHub and collaborative workflows during the first week, as we struggled a bit at the beginning to merge our code.
 * **If recommending to a friend, would you suggest they intern here? Why or why not?**  
-  * Yes, absolutely. This is an exceptionally structured, practical, and high-quality Workforce Bootcamp for anyone wishing to pursue a career as a Cloud Engineer or DevOps specialist.
+  * Yes, absolutely. It's a highly practical program where you get to work with advanced Cloud and DevOps tech that you rarely get to practice deeply at school. The mentors and admins are also super friendly and supportive.
 
 ---
 
 ### Suggestions & Expectations
 
-* **Suggestions to improve the internship experience:** Provide more flexible cloud credits or Sandbox accounts so students can explore and test advanced cloud architectures beyond the standard curriculum.
-* **Desire to continue:** I would love to continue participating in the First Cloud AI Journey community in the future as a technical assistant or mentor to share my experience with upcoming cohorts.
-* **Additional comments:** I would like to express my sincere gratitude to the FCJ organizing team and AWS Vietnam for creating such a valuable and meaningful learning and internship journey for technology students.
+* **Suggestions to improve the internship experience:** I hope the program can provide slightly more cloud credits or broader Sandbox permissions so students can freely test more complex cloud architectures outside the standard labs.
+* **Desire to continue:** I would love to stay connected with the First Cloud AI Journey community, perhaps as a teaching assistant or mentor to share my experience with future cohorts.
+* **Additional comments:** I would like to express my sincere gratitude to the FCJ organizers and AWS Vietnam for creating such a valuable, supportive, and memorable internship program for tech students!

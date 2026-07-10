@@ -7,7 +7,6 @@ pre: " <b> 2. </b> "
 ---
 
 # Rookwork - Phần mềm quản lý làm việc nhóm  
-## Hệ thống quản lý làm việc nhóm hỗ trợ cộng tác thời gian thực trên nền tảng desktop  
 
 ### 1. Tổng quan dự án  
 Trong bối cảnh cách mạng công nghiệp 4.0 và xu hướng làm việc từ xa (remote working) cũng như làm việc lai (hybrid) ngày càng phổ biến, việc quản lý làm việc nhóm hiệu quả là một yếu tố sống còn đối với các cá nhân, nhóm dự án và doanh nghiệp. **Rookwork** là phần mềm quản lý làm việc nhóm tích hợp, hiện đại, được thiết kế để hoạt động dưới dạng ứng dụng đa nền tảng (browser và desktop app). Hệ thống sử dụng kiến trúc Client-Server với frontend phát triển bằng **React 19**, có thể đóng gói thành ứng dụng desktop bằng **Electron** để tạo trải nghiệm mượt mà, cùng backend vững chắc xây dựng trên nền tảng **Spring Boot** kết hợp cùng các dịch vụ của AWS.
@@ -21,7 +20,7 @@ Hiện nay, nhiều đội ngũ vẫn đối mặt với các khó khăn lớn t
 ### 3. Kiến trúc giải pháp (Workflow)
 Hệ thống hoạt động dựa trên mô hình phân tán trong môi trường AWS Cloud. Luồng xử lý được chia làm các hướng chính như sau:
 
-![Rookwork Architecture](/images/2-Proposal/rookwork_architecture.jpg)
+![Rookwork Architecture](/images/2-Proposal/workflow.png)
 
 **1. Luồng Mạng và Phân phối Nội dung (Networking & Content Delivery):**
 - Mọi yêu cầu từ người dùng (Users) đều được phân giải tên miền qua **Amazon Route 53**.
