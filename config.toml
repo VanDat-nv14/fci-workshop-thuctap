@@ -1,6 +1,6 @@
 baseURL = "https://vandat-nv14.github.io/fci-workshop-thuctap/"
-relativeURLs = false
-canonifyURLs = true
+relativeURLs = true
+canonifyURLs = false
 defaultContentLanguage = "en"
 
 # Change the default theme to be use when building the site with Hugo
