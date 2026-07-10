@@ -8,23 +8,25 @@ pre: " <b> 1.11. </b> "
 
 ### Week 11 Objectives:
 
-* Perform performance testing of the Rookwork system on the Production environment to evaluate the real-world load capacity of the AWS infrastructure.
-* Organize an internal project Demo session, receive feedback, and apply adjustments before the official handover.
-* Clean up AWS test resources to control operating costs.
+* Research performance testing tools and script load tests for the system.
+* Perform load testing to evaluate the actual scaling capabilities of the Auto Scaling Group (ASG) under heavy stress.
+* Monitor scaling activities and optimize cooldown periods and scale-in rules.
+* Document the Auto Scaling configuration and compile the load testing analysis report.
 
 ### Tasks to be carried out this week:
+
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
-| 2 | - Conduct performance testing (Load Testing) on the Rookwork Production system: evaluate the actual load capacity of the Application Load Balancer and the Auto Scaling Group under multiple concurrent user thresholds. | 29/06/2026 | 30/06/2026 | <https://000006.awsstudygroup.com/> |
-| 3 | - Collaborate with the team to organize an internal Demo of the Rookwork project, presenting the AWS infrastructure architecture, CI/CD pipeline, and all completed application features. | 30/06/2026 | 01/07/2026 | N/A |
-| 4 | - Collect feedback from the Demo session and perform Bug Fixes on both Frontend and Backend before the official handover. | 01/07/2026 | 02/07/2026 | N/A |
-| 5 | - Conduct a comprehensive system re-verification after bug fixes to ensure all features are stable and working correctly on the Production environment. | 02/07/2026 | 03/07/2026 | N/A |
-| 6 | - Clean up and delete unused AWS test resources (EC2 test instances, old Snapshots) to avoid unnecessary cost accumulation. | 03/07/2026 | 03/07/2026 | <https://000002.awsstudygroup.com/> |
+| 2 | - Research load testing tools (such as Apache JMeter, Locust, Artillery) to simulate large volumes of concurrent traffic. | 29/06/2026 | 30/06/2026 | <https://000006.awsstudygroup.com/> |
+| 3 | - Configure a detailed load testing script, sending concurrent HTTP requests to the Application Load Balancer to spike CPU usage. | 30/06/2026 | 01/07/2026 | N/A |
+| 4 | - Run the load testing scenarios, monitoring CloudWatch metrics to verify the ASG scales out (provisions new instances). | 01/07/2026 | 02/07/2026 | N/A |
+| 5 | - Monitor the scale-in process when traffic drops, making configurations to optimize the Cooldown Period. | 02/07/2026 | 03/07/2026 | N/A |
+| 6 | - Author technical documentation describing Auto Scaling setups and compiling load test analysis results. | 03/07/2026 | 03/07/2026 | <https://000002.awsstudygroup.com/> |
 
 ### Week 11 Achievements:
 
-* Successfully conducted Load Testing on the Rookwork Production system, confirming the Application Load Balancer distributes traffic evenly across EC2 instances and the Auto Scaling Group automatically provisions new instances when CPU exceeds the configured threshold.
-* Successfully organized an internal Demo of the Rookwork project, clearly presenting the 3-tier AWS infrastructure architecture, automated CI/CD pipeline, and all application features to the team and supervisor.
-* Gathered feedback from the Demo session and applied timely Bug Fixes: adjusted Frontend UI elements, handled edge cases on the Backend, and re-verified the authentication flow.
-* Completed comprehensive system verification after bug fixes, confirming all features are stable, meet requirements, and are ready for official handover.
-* Successfully cleaned up and deleted unused AWS test resources, minimizing operating costs in the final phase of the internship.
+* Selected and mastered a suitable load testing tool to simulate user traffic patterns.
+* Successfully set up a secure and effective load testing script targeting the application's API endpoints.
+* Executed the load tests successfully: Verified that the Auto Scaling Group provisions new EC2 instances when average CPU usage exceeds thresholds.
+* Optimized the cooldown duration and scale-in rules to reduce resource waste and cost when traffic decreases.
+* Completed a comprehensive technical report documenting the Auto Scaling configuration and system load test outcomes.
