@@ -10,7 +10,7 @@ pre: " <b> 1.12. </b> "
 
 * Hoàn thiện chi tiết báo cáo thực tập, rà soát tất cả các phần nội dung trong tài liệu báo cáo.
 * Bàn giao sản phẩm hạ tầng AWS và mã nguồn của dự án nhóm Rookwork.
-* Họp tổng kết kỳ thực tập với Mentor và chuẩn bị báo cáo trước hội đồng đánh giá HUTECH.
+* Chuẩn bị báo cáo trước hội đồng đánh giá HUTECH.
 
 ### Các công việc cần triển khai trong tuần này:
 
@@ -18,12 +18,11 @@ pre: " <b> 1.12. </b> "
 | --- | --- | --- | --- | --- |
 | 2 | - Hoàn thiện chi tiết báo cáo thực tập, rà soát lại các mục Worklog, Đề xuất (Proposal), Blog dịch thuật và Bài thu hoạch Sự kiện. | 06/07/2026 | 07/07/2026 | N/A |
 | 3 | - Phối hợp cùng nhóm Rookwork để đóng gói mã nguồn, viết tài liệu README, hướng dẫn triển khai (Deployment Guide) và bàn giao toàn bộ sản phẩm hạ tầng AWS. | 07/07/2026 | 08/07/2026 | N/A |
-| 4 | - Gặp gỡ Mentor (Nguyễn Gia Hưng) để báo cáo kết quả, lắng nghe nhận xét, góp ý và đánh giá cuối kỳ thực tập tại AWS Việt Nam. | 08/07/2026 | 09/07/2026 | N/A |
-| 5 | - Chuẩn bị tài liệu thuyết trình (Slide) và tập luyện báo cáo trước hội đồng đánh giá của trường HUTECH. | 09/07/2026 | 10/07/2026 | N/A |
-| 6 | - Thực hiện dọn dẹp và hủy bỏ toàn bộ các tài nguyên AWS còn lại trên các tài khoản sandbox/phát triển để đảm bảo không phát sinh chi phí ngoài ý muốn. | 10/07/2026 | 10/07/2026 | N/A |
+| 4 | - Chuẩn bị tài liệu thuyết trình (Slide) và tập luyện báo cáo trước hội đồng đánh giá của trường HUTECH. | 08/07/2026 | 09/07/2026 | N/A |
+| 5 | - Thực hiện dọn dẹp và hủy bỏ toàn bộ các tài nguyên AWS còn lại trên các tài khoản sandbox/phát triển để đảm bảo không phát sinh chi phí ngoài ý muốn. | 09/07/2026 | 10/07/2026 | N/A |
 
 ### Kết quả đạt được tuần 12:
 
 * Hoàn thành 100% báo cáo thực tập chi tiết và slide thuyết trình.
 * Bàn giao toàn bộ mã nguồn và tài nguyên hạ tầng AWS của dự án Rookwork thành công.
-* Nhận đánh giá xuất sắc và xác nhận hoàn thành kỳ thực tập từ AWS Vietnam.
+* Chuẩn bị đầy đủ hồ sơ và tài liệu phục vụ báo cáo hội đồng đánh giá.
