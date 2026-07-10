@@ -10,7 +10,7 @@ pre: " <b> 1.12. </b> "
 
 * Finalize the detailed internship report and review all content sections.
 * Hand over AWS network infrastructure assets and the source code of the Rookwork group project.
-* Prepare for the graduation report presentation at HUTECH.
+* Prepare presentation slides and final internship report documents.
 
 ### Tasks to be carried out this week:
 
@@ -18,11 +18,11 @@ pre: " <b> 1.12. </b> "
 | --- | --- | --- | --- | --- |
 | 2 | - Finalize the detailed internship report, reviewing all sections including Worklogs, Proposal, Blogs, and Event Reflection. | 06/07/2026 | 07/07/2026 | N/A |
 | 3 | - Collaborate with the Rookwork team to package the source code, write README and deployment guides, and hand over all AWS resources. | 07/07/2026 | 08/07/2026 | N/A |
-| 4 | - Prepare presentation slides and practice reporting for the HUTECH academic evaluation committee. | 08/07/2026 | 09/07/2026 | N/A |
+| 4 | - Prepare presentation slides and complete the final internship report documents. | 08/07/2026 | 09/07/2026 | N/A |
 | 5 | - Clean up and delete all remaining AWS resources on sandbox and development accounts to avoid unexpected costs. | 09/07/2026 | 10/07/2026 | N/A |
 
 ### Week 12 Achievements:
 
 * Completed 100% of the internship report and presentation slides.
 * Handed over all source code repositories and AWS cloud environment assets successfully.
-* Prepared all necessary files and documentation for the academic evaluation committee.
+* Prepared the presentation slides and final internship report documentation package.
