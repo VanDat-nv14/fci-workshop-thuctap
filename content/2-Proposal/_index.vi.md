@@ -6,192 +6,75 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-# Rookwork – Nền tảng quản lý công việc & cộng tác nhóm trên AWS
-## Giải pháp hạ tầng Cloud đầy đủ cho ứng dụng thực tế trên Amazon Web Services
+# Rookwork - Phần mềm quản lý làm việc nhóm  
+## Hệ thống quản lý làm việc nhóm hỗ trợ cộng tác thời gian thực trên nền tảng desktop  
 
----
+### 1. Tổng quan dự án  
+Trong bối cảnh cách mạng công nghiệp 4.0 và xu hướng làm việc từ xa (remote working) cũng như làm việc lai (hybrid) ngày càng phổ biến, việc quản lý làm việc nhóm hiệu quả là một yếu tố sống còn đối với các cá nhân, nhóm dự án và doanh nghiệp. **Rookwork** là phần mềm quản lý làm việc nhóm tích hợp, hiện đại, được thiết kế để hoạt động dưới dạng ứng dụng đa nền tảng (browser và desktop app). Hệ thống sử dụng kiến trúc Client-Server với frontend phát triển bằng **React 19**, có thể đóng gói thành ứng dụng desktop bằng **Electron** để tạo trải nghiệm mượt mà, cùng backend vững chắc xây dựng trên nền tảng **Spring Boot** kết hợp cùng các dịch vụ của AWS.
 
-### 1. Tóm tắt điều hành
+> **Lưu ý về trạng thái hiện tại:** Ở giai đoạn hiện tại, nền tảng chính đang được người dùng sử dụng là phiên bản **web browser** (chạy trực tiếp trên trình duyệt, không cần cài đặt). Phiên bản **desktop (đóng gói bằng Electron)** đã được phát triển nhưng **chưa được cập nhật đồng bộ** với bản web mới nhất, do đó có thể còn thiếu một số tính năng hoặc bản vá so với phiên bản web hiện hành. Mục tiêu dài hạn của dự án vẫn là hoàn thiện và đồng bộ ứng dụng desktop đa nền tảng như định hướng kiến trúc ban đầu.
 
-**Rookwork** là nền tảng quản lý công việc và cộng tác nhóm đa nền tảng, hỗ trợ đồng thời trên **Web (Browser)** và **Desktop (Electron)**. Ứng dụng cho phép các nhóm làm việc tổ chức dự án, phân công nhiệm vụ, theo dõi tiến độ và giao tiếp theo thời gian thực qua WebSocket.
+### 2. Vấn đề cần giải quyết  
+Hiện nay, nhiều đội ngũ vẫn đối mặt với các khó khăn lớn trong việc cộng tác và quản lý dự án:
+- **Sử dụng công cụ rời rạc:** Nhiều nhóm vẫn đang quản lý công việc thủ công qua các kênh không đồng bộ như Excel, Google Sheets, Messenger/Zalo và email. Điều này dẫn đến việc khó theo dõi tiến độ, dễ xảy ra nhầm lẫn, thiếu tính minh bạch và tiêu tốn nhiều thời gian trao đổi thông tin không cần thiết.
+- **Cách thức sử dụng phức tạp:** Các nền tảng quản lý dự án hiện có (như Trello, Jira, Asana, Monday.com) thường có giao diện và luồng thao tác phức tạp, nhiều tầng cấu hình, đòi hỏi người dùng mất thời gian tìm hiểu và làm quen trước khi có thể sử dụng hiệu quả. Điều này gây khó khăn đặc biệt cho các nhóm nhỏ, sinh viên hoặc người mới bắt đầu, những đối tượng cần một công cụ đơn giản trực quan, dễ tiếp cận ngay từ lần sử dụng đầu tiên.
+### 3. Kiến trúc giải pháp (Workflow)
+Hệ thống hoạt động dựa trên mô hình phân tán trong môi trường AWS Cloud. Luồng xử lý được chia làm các hướng chính như sau:
 
-Dự án được thực hiện trong khuôn khổ kỳ thực tập tại **Công ty TNHH Amazon Web Services Viet Nam** (17/04/2026 – 12/07/2026), dưới sự hướng dẫn của Mentor **Nguyễn Gia Hưng**. Mục tiêu cốt lõi là xây dựng một hệ thống hoàn chỉnh từ lập trình ứng dụng đến triển khai toàn bộ hạ tầng đám mây trên AWS theo tiêu chuẩn thực tế của ngành, bao gồm: kiến trúc 3-tier, phân vùng mạng VPC, cơ sở dữ liệu quan hệ RDS, phân phối nội dung toàn cầu qua CloudFront, và quy trình CI/CD tự động hóa hoàn toàn bằng GitHub Actions.
+![Rookwork Architecture](/images/2-Proposal/rookwork_architecture.jpg)
 
----
+**1. Luồng Mạng và Phân phối Nội dung (Networking & Content Delivery):**
+- Mọi yêu cầu từ người dùng (Users) đều được phân giải tên miền qua **Amazon Route 53**.
+- Giao diện Frontend tĩnh được lưu trữ hoàn toàn trên bucket **Amazon S3 (FE Static)**.
+- Để tăng tốc độ tải trang và bảo mật, nội dung Frontend được phân phối qua **Amazon CloudFront** kết hợp với hệ thống tường lửa **AWS WAF** giúp ngăn chặn các cuộc tấn công web.
 
-### 2. Tuyên bố vấn đề
+**2. Luồng Định tuyến và Tính toán Backend (Routing & Compute):**
+- Các API traffic đi qua **Internet Gateway** vào mạng **Amazon VPC**, sau đó được phân tải bởi **Application Load Balancer (ALB)**.
+- Backend xây dựng bằng Java Spring Boot được triển khai trên các máy ảo **Amazon EC2**. Các máy chủ này được đặt an toàn trong *Private Subnets*.
+- Để EC2 trong mạng nội bộ có thể gọi các dịch vụ bên ngoài, hệ thống định tuyến Outbound Traffic thông qua **NAT Gateway**.
 
-**Vấn đề hiện tại:**
-Các công cụ quản lý công việc nhóm phổ biến như Trello, Jira hay Notion đang được sử dụng rộng rãi nhưng chủ yếu là giải pháp SaaS bên thứ ba, thường tốn kém khi mở rộng quy mô và không cho phép kiểm soát hoàn toàn về dữ liệu cũng như hạ tầng bên dưới. Chưa có giải pháp nội địa nào được xây dựng và vận hành hoàn toàn trên hạ tầng AWS Cloud một cách bài bản và minh bạch.
+**3. Luồng Cơ sở dữ liệu và Lưu trữ (Database & Storage):**
+- Mọi dữ liệu nghiệp vụ lõi được lưu trữ trên **Amazon RDS (PostgreSQL)**, triển khai theo mô hình **Multi-AZ (DB Replication)** trên nhiều Availability Zones để dự phòng thảm họa.
+- Quá trình quản lý thay đổi cấu trúc DB được thực hiện bởi Flyway.
+- Các file đính kèm được EC2 ghi vào S3 thông qua một đường dẫn nội bộ bảo mật (Internal Routing) bằng **VPC S3 Gateway Endpoint**. Người dùng sau đó có thể tải file thông qua Direct File Access hoặc CloudFront một cách an toàn.
 
-**Giải pháp:**
-Rookwork được triển khai trên hạ tầng AWS với kiến trúc 3 tầng: Frontend React/Vite được phân phối toàn cầu qua Amazon S3 + CloudFront, Backend Spring Boot chạy trong Docker container trên Amazon EC2, và cơ sở dữ liệu Amazon RDS PostgreSQL đặt trong Private Subnet được bảo vệ hoàn toàn khỏi internet. Toàn bộ quy trình CI/CD được tự động hóa bằng GitHub Actions, từ khi lập trình viên push code đến khi người dùng nhận được bản cập nhật mới nhất. Bảo mật được áp dụng theo nguyên tắc Defense-in-Depth với Bastion Host, IAM Least Privilege, Spring Security + JWT và AWS Secrets Manager.
+**4. Luồng Thông báo và Quản lý dùng chung (Notifications & Shared Services):**
+- Mọi sự kiện kích hoạt email (như mời tham gia nhóm) được EC2 gọi trực tiếp đến **Amazon SES** để gửi cho Users.
+- Chứng chỉ SSL/TLS được quản lý bởi **AWS Certificate Manager (ACM)** kết hợp chặt chẽ việc phân quyền hệ thống qua **AWS IAM**.
 
-**Lợi ích và ROI:**
-Dự án cung cấp một sản phẩm phần mềm thực tế có thể sử dụng ngay, đồng thời là nền tảng học tập tổng hợp toàn bộ vòng đời phát triển phần mềm trên AWS (SDLC). Chi phí hạ tầng ước tính thấp nhờ sử dụng các gói AWS Free Tier và tối ưu hóa tài nguyên. Hệ thống có thể mở rộng dễ dàng nhờ kiến trúc ALB + Auto Scaling Group kết hợp cùng quy trình CI/CD tự động, giúp giảm đáng kể thời gian và rủi ro khi phát hành phiên bản mới.
-
----
-
-### 3. Kiến trúc giải pháp
-
-Rookwork áp dụng kiến trúc **3-tier (3 tầng)** trên nền tảng AWS, triển khai tại vùng `ap-southeast-1` (Singapore):
-
-```
-[ Người dùng (Web / Desktop) ]
-        │
-        ▼
-[ Amazon CloudFront (CDN) ] ←── [ Amazon S3 (Frontend Static Files) ]
-        │
-        ▼ (API requests đến api.rookwork.asia)
-[ Amazon Route 53 (DNS) ]
-        │
-        ▼
-[ Application Load Balancer (ALB) ]
-        │
-        ▼
-[ Auto Scaling Group ]
-  └── [ Amazon EC2 – Docker Container (Spring Boot Backend, port 8080) ]
-        │
-        ├── [ AWS Secrets Manager (DB Credentials, JWT Secret) ]
-        │
-        ▼
-[ Amazon RDS – PostgreSQL (Private Subnet) ]
-```
-
-**Phân tầng mạng (VPC Architecture):**
-
-| Tầng | Tài nguyên | Vị trí mạng |
-| :--- | :--- | :--- |
-| **Tầng trình diện (Presentation)** | Amazon S3 + CloudFront, tên miền `rookwork.asia` | Public – AWS Edge Locations |
-| **Tầng ứng dụng (Application)** | ALB + Auto Scaling Group + EC2 (Spring Boot trong Docker) | Public Subnet (Bastion Host bảo vệ SSH) |
-| **Tầng dữ liệu (Data)** | Amazon RDS PostgreSQL | Private Subnet (không tiếp xúc internet) |
-
-**Dịch vụ AWS sử dụng:**
-
-| Dịch vụ AWS | Vai trò trong hệ thống |
-| :--- | :--- |
-| **Amazon EC2** | Chạy Docker container cho Spring Boot Backend |
-| **Amazon RDS (PostgreSQL)** | Cơ sở dữ liệu quan hệ trong Private Subnet |
-| **Amazon S3** | Lưu trữ file build tĩnh của Frontend (React/Vite) |
-| **Amazon CloudFront** | CDN phân phối Frontend toàn cầu, tối ưu cache |
-| **Amazon Route 53** | Quản lý DNS, phân giải tên miền `rookwork.asia` |
-| **AWS VPC** | Phân vùng mạng bảo mật (Public/Private Subnet) |
-| **Application Load Balancer** | Cân bằng tải và định tuyến traffic vào Backend |
-| **Auto Scaling Group** | Tự động co giãn số lượng EC2 theo tải |
-| **AWS IAM** | Quản lý quyền truy cập cho GitHub Actions và tài nguyên AWS |
-| **AWS Secrets Manager** | Lưu trữ bảo mật biến nhạy cảm (DB credentials, JWT Secret) |
-| **AWS Bastion Host** | Cổng quản trị SSH bảo mật vào các máy chủ nội bộ |
-
----
-
-### 4. Triển khai kỹ thuật
-
-**Công nghệ sử dụng:**
-
-*Backend:*
-
-| Thành phần | Công nghệ | Phiên bản |
-| :--- | :--- | :--- |
-| Ngôn ngữ | Java | 21 (LTS) |
-| Framework | Spring Boot | 4.0.2 |
-| Bảo mật | Spring Security + JWT (JJWT 0.12.6) | – |
-| Xác thực bên thứ 3 | Google OAuth2 | – |
-| ORM | Spring Data JPA + Hibernate | – |
-| Database Migration | Flyway (PostgreSQL) | – |
-| Giao tiếp thời gian thực | Spring WebSocket + STOMP | – |
-| Quản lý bí mật | AWS Secrets Manager (spring-cloud-aws 4.0.2) | – |
-| Đóng gói | Docker (eclipse-temurin:21-jdk) | – |
-| Build tool | Apache Maven | – |
-
-*Frontend:*
-
-| Thành phần | Công nghệ | Phiên bản |
-| :--- | :--- | :--- |
-| Framework UI | React | 19 |
-| Build tool | Vite | – |
-| CSS Framework | Tailwind CSS | v4 |
-| Desktop App | Electron | 28 |
-| Routing | React Router DOM | v7.13.0 |
-| Realtime | STOMP.js + SockJS | – |
-| Animation | Motion (Framer Motion) | v12 |
-| Drag & Drop | React DnD | v16 |
-| Quản lý Package | Yarn Workspaces (Monorepo) | – |
-
-**Quy trình CI/CD (GitHub Actions):**
-
-Hệ thống sử dụng **GitHub Actions** để tự động hóa hoàn toàn quy trình build và deploy khi có code mới được đẩy lên nhánh `main`:
-
-*Pipeline Backend:*
-```
-Push to main → Checkout code → Setup JDK 21 → Maven Build JAR
-→ SCP copy JAR to EC2 → SSH into EC2 → Docker stop/rm old container
-→ Docker build new image → Docker run new container (port 8080)
-```
-
-*Pipeline Frontend:*
-```
-Push to main → Checkout code → Setup Node.js 22 → Yarn install
-→ Vite Build (VITE_API_URL=https://api.rookwork.asia)
-→ Configure AWS Credentials → S3 sync assets (cache: 1 year)
-→ S3 upload index.html (no-cache) → CloudFront Invalidation
-```
-
----
+### 3. Triển khai kỹ thuật
+*Yêu cầu kỹ thuật*
+- **Backend:** Java Spring Boot, Spring Security (JWT/OAuth2), Spring Data JPA.
+- **Database:** PostgreSQL, Flyway (Database Migration).
+- **Frontend:** ReactJS / TypeScript.
+- **Các dịch vụ AWS sử dụng:** 
+  - *Mạng & Bảo mật:* Amazon Route 53, Amazon CloudFront, AWS WAF, Amazon VPC (IGW, NAT Gateway, ALB, S3 Gateway Endpoint), AWS ACM, AWS IAM.
+  - *Tính toán & Lưu trữ:* Amazon EC2, Amazon RDS (PostgreSQL Multi-AZ), Amazon S3 (FE Static & File Storage).
+  - *Khác:* Amazon SES (Email Notification).
 
 ### 5. Lộ trình & Mốc triển khai
+- *Giai đoạn 1:* Thiết kế kiến trúc AWS Cloud, cấu hình VPC, Subnets, Route 53 và IAM.
+- *Giai đoạn 2:* Xây dựng Backend Spring Boot và database PostgreSQL (RDS Multi-AZ).
+- *Giai đoạn 3:* Triển khai Backend lên EC2 với ALB, cấu hình Nat Gateway.
+- *Giai đoạn 4:* Phát triển Frontend, upload lên S3 và cấu hình CloudFront + WAF.
+- *Giai đoạn 5:* Tích hợp luồng S3 Endpoint để lưu trữ file và Amazon SES để gửi email.
+- *Giai đoạn 6:* Kiểm thử End-to-end, rà soát bảo mật và bàn giao hệ thống.
 
-| Giai đoạn | Tuần | Nội dung triển khai |
-| :---: | :---: | :--- |
-| **Nền tảng Cloud** | Tuần 1–2 | Học AWS cơ bản: IAM, EC2, S3, MFA, Cost Management |
-| **Mạng & Lưu trữ** | Tuần 3–4 | VPC, Bastion Host, NAT Gateway, S3 Static Web, CloudFront |
-| **Triển khai ứng dụng** | Tuần 5–6 | Deploy app lên EC2, kết nối RDS, DNS Route 53 |
-| **Hạ tầng dự án thực tế** | Tuần 7–8 | Xây dựng VPC Rookwork thực tế, ALB, Auto Scaling, CI/CD Pipeline |
-| **Production & Giám sát** | Tuần 9–10 | Deploy Production, HTTPS, CloudWatch, tối ưu bảo mật & chi phí |
-| **Hoàn thiện & Bàn giao** | Tuần 11–12 | Load Testing, Demo nội bộ, Bug Fix, viết báo cáo, bàn giao |
+### 6. Chi phí vận hành
+Hệ thống Rookwork được triển khai trên nền tảng AWS theo tiêu chuẩn kiến trúc High Availability (Độ sẵn sàng cao) và bảo mật 3 lớp. Nền tảng sử dụng các dịch vụ cốt lõi bao gồm cụm máy chủ EC2 xử lý backend Spring Boot, cơ sở dữ liệu RDS PostgreSQL và S3 để lưu trữ frontend React 19 cùng tài nguyên tĩnh.
 
----
+Trong giai đoạn hiện tại, do hệ thống chủ yếu phục vụ mục đích kiểm thử và báo cáo nghiệm thu trước hội đồng với lưu lượng truy cập nội bộ, tổng chi phí hạ tầng ước tính duy trì ở mức tối ưu khoảng **136 USD/tháng** (tương đương **3,48 triệu VND**). Mức ngân sách này đã bao gồm:
+- Thiết lập dự phòng đa vùng **(Multi-AZ)** cho backend và database.
+- Duy trì **NAT Gateway** để đảm bảo an toàn mạng (Private Subnet).
+- Tích hợp **S3 Gateway Endpoint** giúp đưa chi phí băng thông nội bộ về 0.
 
-### 6. Ước tính ngân sách
-
-**Chi phí hạ tầng AWS (ước tính hàng tháng):**
-
-| Dịch vụ | Cấu hình | Chi phí ước tính |
-| :--- | :--- | :--- |
-| Amazon EC2 (t3.micro) | 1 instance, Free Tier 12 tháng | ~0,00 USD/tháng |
-| Amazon RDS (db.t3.micro) | PostgreSQL, Single-AZ, 20 GB SSD | ~0,00 USD/tháng (Free Tier) |
-| Amazon S3 | 5 GB lưu trữ, ~10.000 request | ~0,12 USD/tháng |
-| Amazon CloudFront | 10 GB data transfer out | ~0,00 USD/tháng (Free Tier) |
-| Amazon Route 53 | 1 hosted zone | ~0,50 USD/tháng |
-| AWS Secrets Manager | 2 secret | ~0,80 USD/tháng |
-| **Tổng ước tính** | | **~1,42 USD/tháng** |
-
-> *Lưu ý: Chi phí thực tế có thể thay đổi tùy theo lưu lượng truy cập và thời gian sử dụng ngoài AWS Free Tier.*
-
----
+Nếu cần cắt giảm thêm ngân sách trong giai đoạn đánh giá này, dự án hoàn toàn có thể linh hoạt chuyển đổi tạm thời về cấu hình **Single-AZ** hoặc thiết lập kịch bản tự động tắt/mở hệ thống ngoài giờ làm việc.
 
 ### 7. Đánh giá rủi ro
+*Ma trận rủi ro*
+- Lỗi thiết lập định tuyến (Routing) trong VPC khiến EC2 không kết nối được Internet hoặc DB: Ảnh hưởng cao, xác suất trung bình.
+- Ngân sách AWS vượt quá mức do thiết lập NAT Gateway hoặc cấu hình Multi-AZ: Ảnh hưởng trung bình, xác suất cao (với tài khoản học tập).
 
-**Ma trận rủi ro:**
-
-| Rủi ro | Mức ảnh hưởng | Xác suất | Chiến lược giảm thiểu |
-| :--- | :---: | :---: | :--- |
-| EC2 instance gặp sự cố / bị quá tải | Cao | Thấp | Auto Scaling Group + ALB tự động phân tải và khởi động instance mới |
-| Mất dữ liệu RDS | Rất cao | Rất thấp | Kích hoạt automated backup hàng ngày + Manual Snapshot định kỳ |
-| Vượt ngân sách AWS | Trung bình | Trung bình | Thiết lập AWS Budget Alerts, thường xuyên kiểm tra Cost Explorer |
-| Lộ thông tin nhạy cảm (credentials) | Cao | Thấp | Sử dụng AWS Secrets Manager + IAM Least Privilege, không hardcode credential |
-| Sự cố khi deploy (rollback) | Trung bình | Trung bình | Giữ Docker image cũ, có thể rollback bằng cách chạy lại container phiên bản trước |
-
-**Kế hoạch dự phòng:**
-- Tắt Auto Scaling và chạy thủ công trên EC2 đơn nếu CI/CD pipeline gặp sự cố.
-- Sử dụng RDS Snapshot để khôi phục dữ liệu trong vòng 5 phút nếu xảy ra lỗi nghiêm trọng.
-- Có thể hạ cấp xuống mô hình deploy đơn giản (không ALB) để tiết kiệm chi phí khi cần thiết.
-
----
-
-### 8. Kết quả kỳ vọng
-
-- Hệ thống **Rookwork** được triển khai hoàn chỉnh và ổn định trên môi trường Production AWS với tên miền chính thức `rookwork.asia`.
-- Quy trình **CI/CD tự động** hoạt động đầu cuối: từ khi lập trình viên push code đến khi người dùng cuối nhận được bản cập nhật mới nhất mà không cần can thiệp thủ công.
-- Hạ tầng được thiết kế đúng nguyên tắc **Defense-in-Depth** (bảo mật theo chiều sâu) và **Least Privilege** (phân quyền tối thiểu).
-- Sinh viên tích lũy được kinh nghiệm thực tế vận hành một hệ thống Cloud hoàn chỉnh từ đầu đến cuối, bao gồm cả thiết kế kiến trúc, triển khai, giám sát và tối ưu hóa, sẵn sàng áp dụng vào môi trường làm việc chuyên nghiệp.
-- Đội nhóm Rookwork bàn giao được một sản phẩm phần mềm **sử dụng được thực tế**, không chỉ dừng lại ở demo hay môi trường dev.
+*Chiến lược giảm thiểu*
+- Cấu hình hạ tầng dưới dạng Code (IaC) để dễ bề kiểm soát.
+- Đặt giới hạn chi phí (AWS Budgets) và cấu hình CloudWatch theo dõi lưu lượng mạng chặt chẽ. Đóng bớt DB Replication (Multi-AZ) trên môi trường Dev để tiết kiệm chi phí.

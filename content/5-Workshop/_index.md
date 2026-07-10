@@ -14,13 +14,12 @@ The workshop follows a consistent structure: **Objectives → Architecture → I
 
 ---
 
-### Workshop – Deploying VPC Network Infrastructure for Rookwork
+### Workshop – Deploying VPC Infrastructure and Backend CI/CD for Rookwork
 
-A step-by-step guide to building a High Availability AWS VPC network system, including Subnets, NAT Gateway, Internet Gateway, VPC Endpoint, and layered Security Groups.
+A step-by-step guide to building a High Availability AWS VPC network system and setting up an automated CI/CD pipeline to deploy the Spring Boot backend application.
 
 1. **[5.1 – Workshop Overview](5.1-Workshop-overview/)** – System architecture and components to be deployed
 2. **[5.2 – Prerequisites](5.2-Prerequisite/)** – Verify IAM account and working region
-3. **[5.3 – Initialize VPC and Subnets](5.3-S3-vpc/)** – Create entire network infrastructure using "VPC and more"
-4. **[5.4 – Configure NAT Gateway](5.4-S3-onprem/)** – Allow Private Subnet to safely access the internet
-5. **[5.5 – Set Up Security Groups](5.5-Policy/)** – Layered virtual firewall for ALB and Backend
-6. **[5.6 – Resource Cleanup](5.6-Cleanup/)** – Delete resources after completing the lab
+3. **[5.3 – Set Up VPC Network Infrastructure](5.3-S3-vpc/)** – Initialize VPC, NAT Gateway, and layered Security Groups
+4. **[5.4 – Deploy Backend CI/CD with GitHub Actions](5.4-Backend-CICD/)** – Configure GitHub Secrets and automation pipeline
+5. **[5.5 – Resource Cleanup](5.5-Cleanup/)** – Delete resources after completing the lab

@@ -14,13 +14,12 @@ Bài workshop được tổ chức theo cấu trúc chuẩn gồm: **Mục tiêu
 
 ---
 
-### Workshop – Triển khai hạ tầng mạng VPC cho Rookwork
+### Workshop – Triển khai hạ tầng mạng VPC và CI/CD cho Rookwork
 
-Hướng dẫn từng bước xây dựng hệ thống mạng AWS VPC có tính sẵn sàng cao, bao gồm thiết lập Subnets, NAT Gateway, Internet Gateway, VPC Endpoint và Security Groups phân tầng.
+Hướng dẫn từng bước xây dựng hệ thống mạng AWS VPC có tính sẵn sàng cao và thiết lập quy trình tự động hóa CI/CD triển khai ứng dụng Spring Boot.
 
 1. **[5.1 – Tổng quan Workshop](5.1-Workshop-overview/)** – Kiến trúc hệ thống và các thành phần sẽ được triển khai
 2. **[5.2 – Điều kiện tiên quyết](5.2-Prerequisite/)** – Kiểm tra tài khoản IAM và Region làm việc
-3. **[5.3 – Khởi tạo VPC và Subnets](5.3-S3-vpc/)** – Tạo toàn bộ hạ tầng mạng bằng "VPC and more"
-4. **[5.4 – Cấu hình NAT Gateway](5.4-S3-onprem/)** – Cho phép Private Subnet kết nối internet an toàn
-5. **[5.5 – Thiết lập Security Groups](5.5-Policy/)** – Tường lửa ảo phân tầng cho ALB và Backend
-6. **[5.6 – Dọn dẹp tài nguyên](5.6-Cleanup/)** – Xóa tài nguyên sau khi hoàn thành lab
+3. **[5.3 – Thiết lập hạ tầng mạng VPC](5.3-S3-vpc/)** – Khởi tạo VPC, NAT Gateway và Security Groups phân tầng
+4. **[5.4 – Triển khai CI/CD Backend với GitHub Actions](5.4-Backend-CICD/)** – Cấu hình GitHub Secrets và luồng tự động hóa
+5. **[5.5 – Dọn dẹp tài nguyên](5.5-Cleanup/)** – Xóa tài nguyên sau khi hoàn thành lab
