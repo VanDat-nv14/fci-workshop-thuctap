@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-Phần này ghi lại chi tiết quá trình học tập, thực hành và triển khai dự án trong suốt **12 tuần thực tập** tại **Công ty TNHH Amazon Web Services Viet Nam** (17/04/2026 – 12/07/2026).
+Phần này ghi lại chi tiết quá trình học tập, thực hành và triển khai dự án trong suốt **12 tuần thực tập** tại **Công ty TNHH Amazon Web Services Viet Nam** (17/04/2026 – 30/07/2026).
 
 Mỗi tuần được trình bày theo cấu trúc thống nhất gồm: **Mục tiêu tuần → Bảng công việc chi tiết theo ngày → Kết quả đạt được**.
 

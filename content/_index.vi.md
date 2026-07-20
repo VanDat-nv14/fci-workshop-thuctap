@@ -17,9 +17,9 @@ chapter: false
 | **Trường**             | Trường Đại học Công nghệ Thành phố Hồ Chí Minh (HUTECH) |
 | **Ngành**              | Công nghệ thông tin                                     |
 | **Lớp**                | 22DTHG1                                                 |
-| **Đơn vị thực tập**    | Amazon Web Services Viet Nam Company Limited            |
+| **Đơn vị thực tập**    | Công ty TNHH Amazon Web Services Viet Nam               |
 | **Vị trí thực tập**    | Workforce Bootcamp - First Cloud AI Journey             |
-| **Thời gian thực tập** | Từ 17/04/2026 đến 12/07/2026                            |
+| **Thời gian thực tập** | Từ 17/04/2026 đến 30/07/2026                            |
 
 <img src="/images/avata-1.jpg" alt="Ảnh đại diện" style="max-width: 220px; border-radius: 8px;">
 

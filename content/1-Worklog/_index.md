@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-This section records the detailed learning, hands-on practice, and project deployment progress throughout **12 weeks of internship** at **Amazon Web Services Vietnam Co., Ltd.** (17/04/2026 – 12/07/2026).
+This section records the detailed learning, hands-on practice, and project deployment progress throughout **12 weeks of internship** at **Amazon Web Services Viet Nam Company Limited** (17/04/2026 – 30/07/2026).
 
 Each week follows a consistent structure: **Weekly Objectives → Detailed Daily Task Table → Achievements**.
 

@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-During my internship at **Amazon Web Services Viet Nam Company Limited (AWS Vietnam)** from **17/04/2026** to **12/07/2026**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.
+During my internship at **Amazon Web Services Viet Nam Company Limited (AWS Vietnam)** from **17/04/2026** to **30/07/2026**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.
 
 I participated in the **Workforce Bootcamp - First Cloud AI Journey** program and focused on designing and deploying the Cloud network infrastructure for the **Rookwork** team project. Through this experience, I improved my professional skills in cloud architecture design, AWS configuration, technical writing, teamwork, and communication.
 

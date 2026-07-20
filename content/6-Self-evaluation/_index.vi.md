@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-Trong suốt quá trình thực tập tại **Công ty TNHH Amazon Web Services Việt Nam (AWS Vietnam)** từ ngày **17/04/2026** đến ngày **12/07/2026**, tôi đã có cơ hội quý báu để học hỏi, thực hành và áp dụng các kiến thức đã tích lũy ở trường vào môi trường làm việc thực tế.
+Trong suốt quá trình thực tập tại **Công ty TNHH Amazon Web Services Viet Nam (AWS Vietnam)** từ ngày **17/04/2026** đến ngày **30/07/2026**, tôi đã có cơ hội quý báu để học hỏi, thực hành và áp dụng các kiến thức đã tích lũy ở trường vào môi trường làm việc thực tế.
 
 Tôi đã tham gia học tập trong chương trình **Workforce Bootcamp - First Cloud AI Journey** và triển khai thiết kế, xây dựng hạ tầng mạng Cloud cho dự án nhóm **Rookwork**. Qua đó, tôi đã nâng cao rõ rệt các kỹ năng chuyên môn như phân tích hệ thống, cấu hình hạ tầng mạng AWS, viết tài liệu kỹ thuật, làm việc nhóm và giao tiếp chuyên nghiệp.
 
