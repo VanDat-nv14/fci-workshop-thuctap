@@ -1,7 +1,7 @@
 ---
 title: "Static Website Hosting with S3"
 menuTitle: "Static Website Hosting with S3"
-date: 2026-05-01
+date : 2026-07-09 
 weight: 2
 chapter: false
 pre: " <b> 5.7.2. </b> "

@@ -18,9 +18,9 @@ pre: " <b> 1.11. </b> "
 | Day | Task | Start Date | Completion Date | Reference Material |
 | --- | --- | --- | --- | --- |
 | 2 | - Research load testing tools (such as Apache JMeter, Locust, Artillery) to simulate large volumes of concurrent traffic. | 29/06/2026 | 30/06/2026 | <https://000006.awsstudygroup.com/> |
-| 3 | - Configure a detailed load testing script, sending concurrent HTTP requests to the Application Load Balancer to spike CPU usage. | 30/06/2026 | 01/07/2026 | N/A |
-| 4 | - Run the load testing scenarios, monitoring CloudWatch metrics to verify the ASG scales out (provisions new instances). | 01/07/2026 | 02/07/2026 | N/A |
-| 5 | - Monitor the scale-in process when traffic drops, making configurations to optimize the Cooldown Period. | 02/07/2026 | 03/07/2026 | N/A |
+| 3 | - Configure a detailed load testing script, sending concurrent HTTP requests to the Application Load Balancer to spike CPU usage. | 30/06/2026 | 01/07/2026 |  |
+| 4 | - Run the load testing scenarios, monitoring CloudWatch metrics to verify the ASG scales out (provisions new instances). | 01/07/2026 | 02/07/2026 |  |
+| 5 | - Monitor the scale-in process when traffic drops, making configurations to optimize the Cooldown Period. | 02/07/2026 | 03/07/2026 |  |
 | 6 | - Author technical documentation describing Auto Scaling setups and compiling load test analysis results. | 03/07/2026 | 03/07/2026 | <https://000002.awsstudygroup.com/> |
 
 ### Week 11 Achievements:

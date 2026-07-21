@@ -6,116 +6,117 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Bài thu hoạch sự kiện về AI, CloudFront và Multi-Agent System
+# Bài Thu Hoạch Sự Kiện AWS Community Day (23/5)
 
-### Mục Đích Của Sự Kiện
+## 1. Mục Đích Và Ý Nghĩa Của Sự Kiện
 
-- Cung cấp góc nhìn thực tế về cách ứng dụng AI hiệu quả thông qua việc xây dựng ngữ cảnh phù hợp.
-- Giới thiệu các công cụ AI hỗ trợ phân tích dữ liệu, tự động hóa quy trình và cộng tác nhóm.
-- Chia sẻ vai trò của Amazon CloudFront trong tối ưu chi phí, hiệu năng, bảo mật và độ tin cậy cho hệ thống.
-- Trình bày kinh nghiệm xây dựng sản phẩm trong thời gian ngắn thông qua case study UTMorpho tại LotusHacks.
-- Phân tích tính không xác định của LLM trong thực tế và cách giảm thiểu rủi ro khi triển khai.
-- Giới thiệu mô hình multi-agent system trong bài toán credit scoring cho startup ở môi trường doanh nghiệp.
+Sự kiện AWS Community Day (23/5) là cơ hội để tiếp cận những xu hướng công nghệ mới nhất trong hệ sinh thái AWS, đặc biệt là các chủ đề nổi bật như Generative AI (GenAI), Multi-Agent System, Amazon CloudFront, cùng các phương pháp phát triển sản phẩm và chia sẻ kinh nghiệm triển khai thực tế từ doanh nghiệp.
 
-### Nội Dung Chương Trình
+Không chỉ dừng lại ở các kiến thức lý thuyết, chương trình còn mang đến nhiều tình huống thực tiễn, các case study và kinh nghiệm giải quyết vấn đề trong môi trường phát triển sản phẩm với thời gian giới hạn. Qua đó, người tham dự có cơ hội hiểu rõ hơn cách các doanh nghiệp ứng dụng công nghệ AWS để xây dựng các hệ thống hiện đại, có khả năng mở rộng và đáp ứng yêu cầu thực tế.
 
-Sự kiện AWS Community Day 2026 tập trung vào các xu hướng công nghệ mới nhất trong hệ sinh thái AWS, đặc biệt nhấn mạnh vào AI tạo sinh (GenAI), Hệ thống đa tác nhân (Multi-Agent), Bảo mật mạng (CloudFront) và các chiến lược tối ưu hóa vận hành cho doanh nghiệp.
+---
 
-#### 1. Ứng dụng GenAI và Hệ thống Đa tác nhân (Multi-Agent Systems)
+## 2. Tổng Hợp Nội Dung Các Phiên Trình Bày
 
-**Hệ thống xếp hạng tín dụng doanh nghiệp (Vy Lam - VPBank):**
+### Phiên 1: Build Second Brain (Diễn giả: Anh Tịnh)
 
-- **Thực trạng:** Các hệ thống ngân hàng truyền thống thường từ chối startup do thiếu dữ liệu lịch sử hoặc tài sản thế chấp.
-- **Giải pháp:** Sử dụng mô hình Multi-Agent (Virtual Credit Committee). Thay vì một Agent duy nhất, hệ thống chia nhỏ thành các Agent chuyên biệt: Phân tích tài chính, Đánh giá thị trường, Đánh giá đội ngũ, Phân tích rủi ro và Tuân thủ.
-- **Hiệu quả:** Rút ngắn thời gian xử lý từ 2-3 tuần xuống còn 2-4 giờ (nhanh hơn 95%), giảm chi phí vận hành 95% và tăng tỷ lệ chấp thuận lên gấp đôi.
+Phiên trình bày tập trung giải thích nguyên nhân khiến AI đôi khi đưa ra câu trả lời chưa chính xác. Theo diễn giả, vấn đề không nằm ở năng lực của mô hình mà chủ yếu xuất phát từ việc thiếu ngữ cảnh (Context).
 
-**Tự động hóa quy trình kinh doanh (Phạm Ng Hải Anh - G-AsiaPacific):**
+Thay vì cố gắng đưa thật nhiều dữ liệu vào câu lệnh (Prompt), người dùng nên cung cấp những thông tin có chọn lọc, chính xác và liên quan trực tiếp đến bài toán cần giải quyết. Xu hướng sử dụng AI hiện nay đang dịch chuyển từ việc tối ưu Prompt sang xây dựng Context và Memory, giúp AI có thể ghi nhớ tri thức dài hạn và phản hồi chính xác hơn.
 
-- Giới thiệu Amazon Quick Suite, giải pháp giúp tích hợp dữ liệu công ty và kiến thức thế giới để tạo ra các Agent AI hỗ trợ các tác vụ lặp đi lặp lại như: tự động tạo biên bản họp (MoM), gửi email cho các bên liên quan và lên lịch họp.
+**💡 Bài học:** Chất lượng của ngữ cảnh đóng vai trò quyết định hiệu quả của AI. Một hệ thống AI chỉ thực sự phát huy giá trị khi được cung cấp đầy đủ mục tiêu, dữ liệu nền và các ràng buộc phù hợp.
 
-#### 2. Kỹ thuật và Tối ưu hóa trong triển khai AI
+---
 
-**Tầm quan trọng của ngữ cảnh (Tinh Truong - GoTymeX):**
+### Phiên 2: Friendly AI Assistant with Amazon Quick (Diễn giả: Hải Anh)
 
-- Nguyên nhân chính khiến AI trả lời sai thường là do thiếu ngữ cảnh (Context) chứ không phải do mô hình yếu.
-- **Lời khuyên:** Cần cung cấp bằng chứng có chọn lọc thay vì nhồi nhét quá nhiều dữ liệu (Chất lượng > Số lượng). Chuyển dịch từ "Prompt" sang "Context" và hướng tới "Memory" (Bộ não AI thứ hai).
+Phiên trình bày giới thiệu giải pháp **Amazon Quick Suite**, cho phép kết hợp dữ liệu nội bộ của doanh nghiệp với nguồn tri thức bên ngoài để xây dựng các trợ lý AI thông minh.
 
-**Tính không xác định của LLM**
+Các AI Agent được tạo ra có thể tự động hóa nhiều tác vụ văn phòng như:
+- Ghi biên bản cuộc họp (Meeting Minutes)
+- Gửi email thông báo
+- Quản lý lịch làm việc
+- Hỗ trợ phối hợp giữa các phòng ban
 
-- Ngay cả khi thiết lập Temperature = 0, mô hình LLM vẫn có thể đưa ra kết quả khác nhau do kiến trúc GPU (phép tính dấu phẩy động) và kỹ thuật batching trong hạ tầng cloud.
-- **Giải pháp:** Nên sử dụng Temperature = 0.1 để tránh vòng lặp vô tận, thực hiện chạy nhiều lần (Majority voting) và ưu tiên đầu ra có cấu trúc (JSON mode).
+Điều này giúp giảm đáng kể khối lượng công việc thủ công, đồng thời nâng cao năng suất và hiệu quả làm việc của doanh nghiệp.
 
-#### 3. Hạ tầng và Bảo mật với Amazon CloudFront (Nguyễn Tuấn Thịnh)
+---
 
-- **Cơ chế Flat-rate Pricing mới:** AWS ra mắt các gói giá cố định (Free, Pro, Business, Premium) cho CloudFront giúp doanh nghiệp dự báo chi phí dễ dàng, tránh tình trạng "sốc hóa đơn" khi bị tấn công DDoS hoặc nội dung trở nên viral.
-- **Tối ưu hóa hiệu năng & Chi phí:**
-  - CloudFront giúp giảm tải CPU cho EC2 bằng cách đảm nhận việc nén dữ liệu (giảm dung lượng đến 82%) và xử lý TLS handshake.
-  - Sử dụng mạng lưới Edge toàn cầu của AWS để chặn đứng các cuộc tấn công DDoS ngay tại điểm gần nguồn nhất.
+### Phiên 3: From Edge To Origin – CloudFront as Your Foundation (Diễn giả: Tuấn Thịnh)
 
-#### 4. Case Study thực tế: UTMorpho (Team VIB)
+Phiên trình bày làm rõ vai trò của Amazon CloudFront trong kiến trúc hệ thống hiện đại. CloudFront không chỉ là một dịch vụ CDN giúp phân phối nội dung nhanh hơn mà còn đóng vai trò như lớp bảo vệ đầu tiên của hệ thống.
 
-- **Dự án:** Một Agent AI cho phép tạo giao diện UI từ mô tả và cho phép chỉnh sửa trực tiếp trên canvas (WYSIWYG) thay vì phải re-prompt nhiều lần làm trôi thiết kế.
-- **Bài học kinh nghiệm:** Ý tưởng thực tế nhất đến từ chính những khó khăn trong công việc hàng ngày. Sự thấu hiểu giữa các thành viên trong đội ngũ quan trọng hơn kỹ năng cá nhân khi làm việc dưới áp lực thời gian (36 giờ hackathon).
+**Cơ chế Flat-rate Pricing:**
 
-### Các Điểm Mấu Chốt Cho Báo Cáo
+Diễn giả giới thiệu các gói **Free, Pro, Business và Premium** nhằm giúp doanh nghiệp chủ động kiểm soát chi phí, hạn chế rủi ro phát sinh hóa đơn lớn khi xảy ra các cuộc tấn công DDoS hoặc khi lưu lượng truy cập tăng đột biến.
 
-- **Về kinh doanh:** AI đa tác nhân (Multi-Agent) giúp tiết kiệm 95% thời gian và chi phí cho các quy trình phức tạp như xét duyệt tín dụng.
-- **Về kỹ thuật:** Context là chìa khóa để AI hoạt động hiệu quả; cần lưu ý tính không xác định của LLM ngay cả ở mức thiết lập thấp nhất.
-- **Về hạ tầng:** CloudFront không chỉ là CDN mà còn là nền tảng bảo mật giúp kiểm soát chi phí hạ tầng hiệu quả với các gói giá cố định mới.
+**Các lợi ích kỹ thuật:**
+- Giảm tải cho máy chủ gốc bằng cách nén dữ liệu
+- Xử lý TLS Handshake ngay tại các Edge Location
+- Chặn các cuộc tấn công DDoS trước khi lưu lượng độc hại đến hệ thống backend
 
-### Những Gì Học Được
+Điều này góp phần cải thiện hiệu năng, tăng tính sẵn sàng và tối ưu chi phí vận hành.
 
-#### Tư Duy Làm Việc Với AI
+![Why CloudFront is better equipped for volumetric attack](/images/4-EventParticipated/4.1-Event1/cloudfront-ddos.png)
+_Kiến trúc CloudFront giúp chống lại các cuộc tấn công DDoS_
 
-- AI không chỉ phụ thuộc vào prompt mà còn phụ thuộc rất nhiều vào ngữ cảnh được cung cấp.
-- Muốn AI hỗ trợ tốt hơn cần mô tả rõ mục tiêu, dữ liệu đầu vào, ràng buộc, tiêu chí đánh giá và kỳ vọng đầu ra.
-- Khái niệm Second AI Brain cho thấy xu hướng AI sẽ ngày càng gắn với memory, workflow cá nhân và tri thức dài hạn.
-- Sinh viên nên bắt đầu học AI bằng cách xây dựng các use case nhỏ, có dữ liệu thật và có vòng lặp cải thiện liên tục.
+---
 
-#### Kiến Thức Về Cloud Và Hạ Tầng
+### Phiên 4: 36 Hours with LotusHacks – Building UTMorpho from Idea to Reality (Diễn giả: Team VIB)
 
-- CloudFront có thể được xem là một lớp nền quan trọng giữa người dùng và origin.
-- CDN không chỉ phục vụ static content mà còn có vai trò trong bảo mật, reliability và tối ưu chi phí.
-- Việc đưa workload ra edge giúp cải thiện trải nghiệm người dùng, đặc biệt với hệ thống có người dùng phân tán ở nhiều khu vực.
-- Khi thiết kế hệ thống cloud, cần cân nhắc đồng thời hiệu năng, chi phí, bảo mật và khả năng mở rộng.
+Phiên chia sẻ kể lại hành trình xây dựng sản phẩm **UTMorpho** trong cuộc thi Hackathon kéo dài 36 giờ.
 
-#### Kinh Nghiệm Xây Dựng Sản Phẩm
+UTMorpho là một AI Agent có khả năng chuyển đổi mô tả bằng ngôn ngữ tự nhiên thành giao diện người dùng (UI) và hỗ trợ chỉnh sửa trực tiếp trên giao diện **WYSIWYG**. Giải pháp này giúp giảm đáng kể việc phải liên tục viết lại Prompt khi muốn điều chỉnh thiết kế.
 
-- Hackathon là môi trường tốt để rèn luyện khả năng biến ý tưởng thành sản phẩm trong thời gian ngắn.
-- Việc xác định vấn đề rõ ràng quan trọng hơn việc bắt đầu code quá sớm.
-- Trong sprint ngắn, nhóm cần ưu tiên tính năng cốt lõi, phân chia công việc hợp lý và liên tục kiểm tra tiến độ.
-- Những thất bại hoặc thay đổi giữa chừng có thể trở thành bước ngoặt giúp sản phẩm thực tế hơn.
+**Bài học từ hành trình phát triển:**
+- Những ý tưởng giá trị thường xuất phát từ chính các khó khăn trong quá trình làm việc hằng ngày.
+- Trong môi trường áp lực cao, sự phối hợp và thấu hiểu giữa các thành viên quan trọng không kém năng lực chuyên môn.
+- Việc xác định đúng vấn đề và tập trung xây dựng **MVP (Minimum Viable Product)** là yếu tố quyết định thành công của dự án.
 
-#### Hiểu Rõ Hơn Về LLM Và Multi-Agent
+![Architecture](/images/4-EventParticipated/4.1-Event1/utmorpho-architecture.png)
+_Kiến trúc hệ thống của UTMorpho_
 
-- LLM có thể không hoàn toàn deterministic dù đã cấu hình các tham số tưởng như cố định.
-- Khi đưa AI vào production, cần có chiến lược kiểm thử, giám sát và quản trị rủi ro.
-- Multi-agent system phù hợp với các bài toán có nhiều bước đánh giá, nhiều nguồn dữ liệu và cần nhiều vai trò chuyên môn.
-- Guardrails, compliance và khả năng giải thích là những yếu tố rất quan trọng khi triển khai AI trong doanh nghiệp.
+---
 
-### Ứng Dụng Vào Học Tập Và Công Việc
+### Phiên 5: Deep Dive Talk – How LLM Actually Works? (Diễn giả: Đào Đức)
 
-- Áp dụng cách viết prompt có ngữ cảnh rõ ràng hơn khi sử dụng AI để học tập, nghiên cứu và lập trình.
-- Thử xây dựng một workflow AI nhỏ phục vụ việc ghi chú, tổng hợp tài liệu hoặc phân tích dữ liệu cá nhân.
-- Tìm hiểu sâu hơn về Amazon CloudFront và cách tích hợp CDN vào kiến trúc web application.
-- Rèn luyện kỹ năng xây dựng MVP thông qua các project ngắn hoặc hackathon.
-- Khi dùng LLM trong project, cần thiết kế cơ chế kiểm tra output thay vì mặc định tin rằng kết quả luôn ổn định.
-- Nghiên cứu thêm về multi-agent system để áp dụng cho các bài toán phức tạp như phân tích tài chính, đánh giá rủi ro hoặc hỗ trợ ra quyết định.
+Phiên trình bày đi sâu vào nguyên lý hoạt động của **Large Language Model (LLM)**, đặc biệt là đặc tính không hoàn toàn xác định (Non-deterministic).
 
-### Trải Nghiệm Trong Event
+Ngay cả khi đặt tham số **Temperature = 0**, mô hình vẫn có khả năng sinh ra các kết quả khác nhau do:
+- Ảnh hưởng của quá trình tính toán dấu phẩy động trên GPU
+- Kỹ thuật xử lý song song (Batching) trong hạ tầng Cloud
 
-Tham gia sự kiện là một trải nghiệm bổ ích vì nội dung không chỉ tập trung vào lý thuyết mà còn có nhiều ví dụ thực tế về AI, cloud infrastructure và quá trình xây dựng sản phẩm. Các phiên chia sẻ giúp tôi nhìn rõ hơn cách AI đang được áp dụng trong nhiều ngữ cảnh khác nhau, từ trợ lý phân tích dữ liệu, workflow tự động, đến hệ thống multi-agent cấp doanh nghiệp.
+**Khuyến nghị khi triển khai AI trong Production:**
+- Sử dụng **Temperature = 0.1**
+- Kết hợp kỹ thuật **Majority Voting**
+- Ưu tiên đầu ra có cấu trúc (**JSON Mode**)
+- Xây dựng các cơ chế **Guardrails** nhằm kiểm soát chất lượng và tính an toàn của hệ thống
 
-Điểm tôi ấn tượng nhất là thông điệp "context is everything". Trước đây, tôi thường nghĩ việc sử dụng AI chủ yếu phụ thuộc vào cách viết prompt. Sau sự kiện, tôi hiểu rằng prompt chỉ là một phần, còn chất lượng ngữ cảnh, dữ liệu nền và mục tiêu cụ thể mới là yếu tố quyết định AI có thể hỗ trợ hiệu quả hay không.
+![The role of Temperature, Top-P, and Top-K](/images/4-EventParticipated/4.1-Event1/llm-temperature.png)
+_Sự ảnh hưởng của tham số Temperature đối với LLM_
 
-Phiên về CloudFront cũng giúp tôi mở rộng góc nhìn về hạ tầng cloud. Tôi nhận ra rằng một dịch vụ CDN có thể đóng vai trò quan trọng trong toàn bộ kiến trúc, từ cải thiện tốc độ tải trang, giảm chi phí origin, đến tăng cường bảo mật và độ tin cậy.
+---
 
-Ngoài ra, case study UTMorpho từ LotusHacks mang lại nhiều cảm hứng về tinh thần xây dựng sản phẩm. Việc một nhóm có thể đi từ ý tưởng đến demo trong 36 giờ cho thấy tầm quan trọng của khả năng làm việc nhóm, xác định vấn đề đúng và ưu tiên tính năng phù hợp.
+### Phiên 6: Enterprise-Grade Multi-Agent System – The Case of Startup Credit Scoring (Diễn giả: Cát Vy)
 
-#### Một Số Hình Ảnh Khi Tham Gia Sự Kiện
+Phiên cuối cùng trình bày mô hình **Multi-Agent System** trong bài toán đánh giá tín dụng dành cho các startup.
 
-![AWS Community Day 2026](/images/4-EventParticipated/4.1-Event1/event1.jpg)
-_Hình ảnh tại sự kiện AWS Community Day 2026_
+Do các doanh nghiệp khởi nghiệp thường thiếu lịch sử tín dụng và tài sản đảm bảo, VPBank đã xây dựng một **Virtual Credit Committee** gồm nhiều AI Agent chuyên trách các nhiệm vụ khác nhau:
+
+| Agent | Nhiệm vụ |
+|---|---|
+| Financial Analyst | Phân tích tài chính |
+| Market Assessor | Đánh giá thị trường |
+| Team Evaluator | Phân tích đội ngũ sáng lập |
+| Risk Manager | Quản trị rủi ro |
+| Compliance Officer | Kiểm tra tuân thủ |
+
+**Kết quả đạt được:**
+- Thời gian đánh giá hồ sơ giảm từ **2–3 tuần** xuống còn **2–4 giờ**
+- Chi phí vận hành giảm khoảng **95%**
+- Tỷ lệ phê duyệt hồ sơ tăng **gấp đôi**
+
+Việc phân chia nhiệm vụ thành nhiều Agent độc lập giúp hệ thống xử lý song song, nâng cao độ chính xác và hiệu quả ra quyết định.
 
 ![Virtual credit committee architecture](/images/4-EventParticipated/4.1-Event1/virtual-credit-committee.png)
 _Mô hình Multi-Agent trong hệ thống Virtual Credit Committee_
@@ -123,13 +124,43 @@ _Mô hình Multi-Agent trong hệ thống Virtual Credit Committee_
 ![Proposed Deployment Approach](/images/4-EventParticipated/4.1-Event1/deployment-approach.png)
 _Cách thức triển khai hệ thống AgentCore trên AWS_
 
-![Why CloudFront is better equipped for volumetric attack](/images/4-EventParticipated/4.1-Event1/cloudfront-ddos.png)
-_Kiến trúc CloudFront giúp chống lại các cuộc tấn công DDoS_
+---
 
-![Architecture](/images/4-EventParticipated/4.1-Event1/utmorpho-architecture.png)
-_Kiến trúc hệ thống của UTMorpho_
+## 3. Những Điểm Nổi Bật Và Bài Học Rút Ra
 
-![The role of Temperature, Top-P, and Top-K](/images/4-EventParticipated/4.1-Event1/llm-temperature.png)
-_Sự ảnh hưởng của tham số Temperature đối với LLM_
+Sau khi tham dự sự kiện, em nhận thấy một số bài học quan trọng có thể áp dụng trong học tập và công việc.
 
-> Tổng thể, sự kiện giúp tôi hiểu rõ hơn về cách kết hợp AI, cloud infrastructure và tư duy sản phẩm để giải quyết các bài toán thực tế. Đây cũng là động lực để tôi tiếp tục học sâu hơn về AI engineering, cloud architecture và các hệ thống multi-agent trong tương lai.
+### Về AI
+
+Hiệu quả của mô hình phụ thuộc rất lớn vào chất lượng của ngữ cảnh được cung cấp. Việc xác định rõ mục tiêu, dữ liệu đầu vào, các ràng buộc và kết quả mong muốn sẽ giúp AI đưa ra phản hồi chính xác hơn. Đồng thời, do LLM vẫn tồn tại tính không ổn định, các hệ thống thực tế cần được thiết kế thêm cơ chế kiểm thử, giám sát và xác thực kết quả.
+
+### Về Kiến Trúc Cloud
+
+Amazon CloudFront không chỉ giúp tăng tốc độ truy cập mà còn đóng vai trò quan trọng trong việc tối ưu hiệu năng, kiểm soát chi phí và tăng cường khả năng bảo mật cho hệ thống.
+
+### Về Phát Triển Sản Phẩm
+
+Môi trường Hackathon cho thấy tầm quan trọng của việc nhanh chóng xây dựng sản phẩm khả dụng tối thiểu (MVP), liên tục thử nghiệm và cải tiến dựa trên phản hồi thực tế thay vì theo đuổi một giải pháp hoàn hảo ngay từ đầu.
+
+---
+
+## 4. Kế Hoạch Ứng Dụng Vào Học Tập Và Công Việc
+
+Sau sự kiện, em định hướng áp dụng những kiến thức đã tiếp thu vào quá trình học tập và phát triển bản thân.
+
+1. **Thay đổi cách sử dụng AI:** Tập trung xây dựng ngữ cảnh đầy đủ thay vì chỉ tối ưu câu lệnh, từ đó nâng cao hiệu quả khi học tập, nghiên cứu và lập trình.
+
+2. **Phát triển AI workflow cá nhân:** Xây dựng các workflow phục vụ công việc như tự động ghi chú, tổng hợp tài liệu, hỗ trợ phân tích dữ liệu và quản lý tri thức cá nhân.
+
+3. **Nghiên cứu chuyên sâu về Cloud:** Tiếp tục tìm hiểu về Amazon CloudFront và kiến trúc Multi-Agent System nhằm xây dựng các giải pháp AI có khả năng xử lý những bài toán phức tạp trong doanh nghiệp.
+
+4. **Thiết kế cơ chế kiểm soát LLM:** Khi tích hợp LLM vào các dự án thực tế, chú trọng thiết kế các cơ chế kiểm tra chéo, giám sát và đánh giá kết quả nhằm đảm bảo tính chính xác, ổn định và an toàn của hệ thống.
+
+---
+
+### Một Số Hình Ảnh Khi Tham Gia Sự Kiện
+
+![AWS Community Day 2026](/images/4-EventParticipated/4.1-Event1/event1.jpg)
+_Hình ảnh tại sự kiện AWS Community Day 2026_
+
+Tổng thể, sự kiện giúp em hiểu rõ hơn về cách kết hợp AI, cloud infrastructure và tư duy sản phẩm để giải quyết các bài toán thực tế. Đây cũng là động lực để em tiếp tục học sâu hơn về AI engineering, cloud architecture và các hệ thống multi-agent trong tương lai.

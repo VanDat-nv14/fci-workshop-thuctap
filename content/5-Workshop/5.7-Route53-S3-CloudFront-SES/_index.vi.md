@@ -1,7 +1,7 @@
 ---
 title: "Tích hợp dịch vụ AWS"
 menuTitle: "Tích hợp dịch vụ AWS"
-date: 2026-05-01
+date : 2026-07-09 
 weight: 7
 chapter: false
 pre: " <b> 5.7. </b> "

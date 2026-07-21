@@ -21,7 +21,7 @@ pre: " <b> 1.10. </b> "
 | 3 | - Configure a detailed Launch Template for EC2 Backend instances, including AMI selection, Instance Type, Key Pair, and Security Groups. | 23/06/2026 | 24/06/2026 | <https://000029.awsstudygroup.com/> |
 | 4 | - Create an Auto Scaling Group (ASG) integrated within the VPC, deploying across two Availability Zones in Private Subnets. | 24/06/2026 | 25/06/2026 | <https://000030.awsstudygroup.com/> |
 | 5 | - Configure a Target Tracking Scaling Policy monitoring average CPU utilization exceeding 70% to trigger scale-out activities. | 25/06/2026 | 25/06/2026 | <https://000036.awsstudygroup.com/> |
-| 6 | - Perform initial verification of the automatic instance provisioning by the ASG and its integration with the Application Load Balancer (ALB). | 26/06/2026 | 26/06/2026 | N/A |
+| 6 | - Perform initial verification of the automatic instance provisioning by the ASG and its integration with the Application Load Balancer (ALB). | 26/06/2026 | 26/06/2026 |  |
 
 ### Week 10 Achievements:
 

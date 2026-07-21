@@ -1,6 +1,6 @@
 ---
 title: "Khởi tạo VPC, NAT Gateway và Security Groups"
-date: 2026-06-01
+date : 2026-07-09 
 weight: 3
 chapter: false
 pre: " <b> 5.3. </b> "

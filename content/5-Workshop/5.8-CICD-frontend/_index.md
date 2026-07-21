@@ -1,7 +1,7 @@
 ---
 title: "Deploy Frontend CI/CD with GitHub Actions"
 menuTitle: "Deploy Frontend CI/CD with GitHub Actions"
-date: 2026-05-01
+date : 2026-07-09 
 weight: 8
 chapter: false
 pre: " <b> 5.8. </b> "

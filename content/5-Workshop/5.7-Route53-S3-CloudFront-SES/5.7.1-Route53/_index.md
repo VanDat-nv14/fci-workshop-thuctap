@@ -1,7 +1,7 @@
 ---
 title: "Domain & AWS Route 53 Configuration"
 menuTitle: "Domain & AWS Route 53 Configuration"
-date: 2026-05-01
+date : 2026-07-09 
 weight: 1
 chapter: false
 pre: " <b> 5.7.1. </b> "

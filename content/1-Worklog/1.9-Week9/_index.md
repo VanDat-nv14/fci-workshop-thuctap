@@ -17,7 +17,7 @@ pre: " <b> 1.9. </b> "
 
 | Day | Task                                                                                                                                 | Start Date | Completion Date | Reference Material                  |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------- |
-| 2   | - Analyze requirements and draw a detailed AWS infrastructure architecture diagram for the group project "rookwork".                 | 15/06/2026 | 16/06/2026      | N/A                                 |
+| 2   | - Analyze requirements and draw a detailed AWS infrastructure architecture diagram for the group project "rookwork".                 | 15/06/2026 | 16/06/2026      |                                  |
 | 3   | - Initialize and configure the cloud Production environment for Backend, Frontend, and Database (RDS).                               | 16/06/2026 | 17/06/2026      | <https://000021.awsstudygroup.com/> |
 | 4   | - Deploy the project source code to the Production infrastructure via the automated CI/CD pipeline.                                  | 17/06/2026 | 18/06/2026      | <https://000023.awsstudygroup.com/> |
 | 5   | - Configure the official custom domain and install SSL/TLS certificates (HTTPS) to secure the system.                                | 18/06/2026 | 18/06/2026      | <https://000010.awsstudygroup.com/> |

@@ -1,6 +1,6 @@
 ---
 title: "Triển khai CI/CD Backend với GitHub Actions"
-date: 2026-04-17
+date : 2026-07-09 
 weight: 6
 chapter: false
 pre: " <b> 5.6. </b> "

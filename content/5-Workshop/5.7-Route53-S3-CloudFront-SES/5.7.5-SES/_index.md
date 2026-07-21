@@ -1,7 +1,7 @@
 ---
 title: "Email Integration with Amazon SES"
 menuTitle: "Email Integration with Amazon SES"
-date: 2026-05-01
+date : 2026-07-09 
 weight: 5
 chapter: false
 pre: " <b> 5.7.5. </b> "

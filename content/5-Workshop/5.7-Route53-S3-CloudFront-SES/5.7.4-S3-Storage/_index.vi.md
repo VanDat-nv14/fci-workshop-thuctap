@@ -1,7 +1,7 @@
 ---
 title: "Lưu trữ tệp tin riêng tư với Amazon S3"
 menuTitle: "Lưu trữ tệp tin riêng tư với Amazon S3"
-date: 2026-05-01
+date : 2026-07-09 
 weight: 4
 chapter: false
 pre: " <b> 5.7.4. </b> "

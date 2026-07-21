@@ -1,7 +1,7 @@
 ---
 title: "Tích hợp dịch vụ gửi Email với Amazon SES"
 menuTitle: "Tích hợp dịch vụ gửi Email với Amazon SES"
-date: 2026-05-01
+date : 2026-07-09 
 weight: 5
 chapter: false
 pre: " <b> 5.7.5. </b> "

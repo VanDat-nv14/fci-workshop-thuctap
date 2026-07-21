@@ -1,6 +1,6 @@
 ---
 title: "Tạo EC2 & Kiểm tra môi trường Private"
-date: 2026-07-08
+date : 2026-07-09 
 weight: 4
 chapter: false
 pre: " <b> 5.4. </b> "

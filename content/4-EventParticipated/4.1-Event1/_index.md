@@ -6,107 +6,117 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-# Reflection on the AI, CloudFront, and Multi-Agent System Event
+# Event Reflection – AWS Community Day (May 23rd)
 
-### Purpose of the Event
+## 1. Purpose and Significance of the Event
 
-- Provide practical perspectives on how to use AI effectively by building the right context.
-- Introduce AI tools that support data analysis, workflow automation, and team collaboration.
-- Explain the role of Amazon CloudFront in optimizing cost, performance, security, and reliability.
-- Share real product-building experience through the UTMorpho case study from LotusHacks.
-- Analyze the non-deterministic behavior of LLMs in real-world usage and how to reduce deployment risks.
-- Introduce multi-agent systems through an enterprise startup credit scoring use case.
+The AWS Community Day event (May 23rd) was an opportunity to access the latest technology trends in the AWS ecosystem, particularly in prominent topics such as Generative AI (GenAI), Multi-Agent Systems, Amazon CloudFront, along with product development methodologies and real-world deployment experiences shared by industry practitioners.
 
-### Event Agenda
+Beyond theoretical knowledge, the program also offered practical scenarios, case studies, and problem-solving experiences in a time-constrained product development environment. Through these sessions, attendees gained a clearer understanding of how enterprises leverage AWS technology to build modern, scalable systems that meet real-world demands.
 
-The AWS Community Day 2026 event focuses on the latest technology trends in the AWS ecosystem, with a special emphasis on Generative AI (GenAI), Multi-Agent Systems, Network Security (CloudFront), and operational optimization strategies for enterprises.
+---
 
-#### 1. GenAI Applications and Multi-Agent Systems
-**Enterprise Credit Scoring System (Vy Lam - VPBank):**
-- **Current Situation:** Traditional banking systems often reject startups due to a lack of historical data or collateral.
-- **Solution:** Use a Multi-Agent model (Virtual Credit Committee). Instead of a single Agent, the system breaks down into specialized Agents: Financial Analysis, Market Assessment, Team Evaluation, Risk Analysis, and Compliance.
-- **Effectiveness:** Shortens processing time from 2-3 weeks to 2-4 hours (95% faster), reduces operational costs by 95%, and doubles the approval rate.
+## 2. Session Summaries
 
-**Business Process Automation (Phạm Ng Hải Anh - G-AsiaPacific):**
-- Introduced Amazon Quick Suite, a solution that integrates company data and world knowledge to create AI Agents supporting repetitive tasks such as: automatically creating Minutes of Meeting (MoM), sending emails to stakeholders, and scheduling meetings.
+### Session 1: Build Second Brain (Speaker: Anh Tinh)
 
-#### 2. Engineering and Optimization in AI Deployment
-**The Importance of Context (Tinh Truong - GoTymeX):**
-- The main reason AI gives wrong answers is often a lack of Context rather than a weak model.
-- **Advice:** Provide selective evidence instead of cramming too much data (Quality > Quantity). Shift from "Prompt" to "Context" and move towards "Memory" (Second AI Brain).
+This session focused on explaining why AI sometimes gives inaccurate answers. According to the speaker, the issue does not lie in the model's capability but primarily stems from a lack of **Context**.
 
-**Non-Determinism of LLMs:**
-- Even with Temperature = 0, LLM models can still produce different results due to GPU architecture (floating-point operations) and batching techniques in cloud infrastructure.
-- **Solution:** Should use Temperature = 0.1 to avoid infinite loops, run multiple times (Majority voting), and prioritize structured outputs (JSON mode).
+Instead of cramming as much data as possible into a prompt, users should provide selective, accurate information that is directly relevant to the problem at hand. The current trend in AI usage is shifting from prompt optimization toward building Context and Memory, enabling AI to retain long-term knowledge and respond more accurately.
 
-#### 3. Infrastructure and Security with Amazon CloudFront (Nguyễn Tuấn Thịnh)
-- **New Flat-rate Pricing Mechanism:** AWS launched fixed-price plans (Free, Pro, Business, Premium) for CloudFront, helping enterprises easily forecast costs and avoid "bill shock" when under DDoS attacks or when content goes viral.
-- **Performance & Cost Optimization:**
-  - CloudFront helps offload CPU for EC2 by handling data compression (reducing size by up to 82%) and TLS handshakes.
-  - Utilizes AWS's global Edge network to block DDoS attacks right at the closest point to the source.
+**💡 Key Insight:** The quality of context is the decisive factor in AI effectiveness. An AI system only truly delivers value when provided with clear goals, background data, and appropriate constraints.
 
-#### 4. Real Case Study: UTMorpho (Team VIB)
-- **Project:** An AI Agent that allows creating UI from descriptions and enables direct editing on the canvas (WYSIWYG) instead of having to re-prompt multiple times which ruins the design.
-- **Lessons Learned:** The most practical ideas come from daily work struggles. Understanding among team members is more important than individual skills when working under time pressure (36-hour hackathon).
+---
 
-### Key Takeaways for the Report
-- **Business:** Multi-Agent AI helps save 95% of time and costs for complex processes like credit approval.
-- **Engineering:** Context is the key for AI to operate effectively; the non-determinism of LLMs must be noted even at the lowest settings.
-- **Infrastructure:** CloudFront is not just a CDN but also a security platform that helps control infrastructure costs effectively with new fixed-price plans.
+### Session 2: Friendly AI Assistant with Amazon Quick (Speaker: Hai Anh)
 
-### What I Learned
+This session introduced the **Amazon Quick Suite** solution, which allows businesses to combine their internal data with external knowledge sources to build intelligent AI assistants.
 
-#### AI Mindset
+The AI Agents created can automate many office tasks such as:
+- Writing Meeting Minutes
+- Sending notification emails
+- Managing work schedules
+- Supporting cross-departmental coordination
 
-- AI does not depend only on prompts; it depends heavily on the context provided.
-- To get better AI results, users should clearly define goals, input data, constraints, evaluation criteria, and expected output.
-- The Second AI Brain concept shows that AI is moving toward memory, personal workflows, and long-term knowledge systems.
-- Students should start learning AI by building small use cases with real data and continuous improvement loops.
+This significantly reduces manual workload while improving productivity and operational efficiency across the organization.
 
-#### Cloud And Infrastructure Knowledge
+---
 
-- CloudFront can be considered an important foundation layer between users and the origin.
-- CDN is not only for static content, but also supports security, reliability, and cost optimization.
-- Moving workloads closer to the edge can improve user experience, especially for globally distributed users.
-- Cloud architecture should balance performance, cost, security, and scalability.
+### Session 3: From Edge To Origin – CloudFront as Your Foundation (Speaker: Tuan Thinh)
 
-#### Product-Building Experience
+This session clarified the role of Amazon CloudFront in modern system architecture. CloudFront is not merely a CDN service for faster content delivery — it also serves as the **first line of defense** for any system.
 
-- Hackathons are useful environments for practicing how to turn ideas into working products quickly.
-- Defining the problem clearly is more important than starting to code too early.
-- In a short sprint, teams need to prioritize core features, divide tasks effectively, and check progress frequently.
-- Failures or direction changes during development can become turning points that make the product more practical.
+**Flat-rate Pricing Mechanism:**
 
-#### LLM And Multi-Agent Understanding
+The speaker introduced pricing tiers — **Free, Pro, Business, and Premium** — to help businesses proactively control costs and minimize the risk of unexpected large bills during DDoS attacks or sudden traffic spikes.
 
-- LLMs may not be fully deterministic even with fixed-looking settings.
-- When deploying AI in production, teams need testing, monitoring, and risk management strategies.
-- Multi-agent systems are suitable for complex problems involving many evaluation steps, data sources, and specialized roles.
-- Guardrails, compliance, and explainability are essential when applying AI in enterprise environments.
+**Technical Benefits:**
+- Reduces load on origin servers through data compression
+- Handles TLS Handshakes directly at Edge Locations
+- Blocks DDoS attacks before malicious traffic reaches the backend
 
-### Application To Study And Work
+This contributes to improved performance, increased availability, and optimized operational costs.
 
-- Apply clearer contextual prompting when using AI for learning, research, and programming.
-- Build small AI workflows for note-taking, document summarization, or personal data analysis.
-- Learn more about Amazon CloudFront and how CDN can be integrated into web application architecture.
-- Practice building MVPs through short projects or hackathons.
-- When using LLMs in projects, design output validation instead of assuming results are always stable.
-- Study multi-agent systems further for complex tasks such as financial analysis, risk assessment, or decision support.
+![Why CloudFront is better equipped for volumetric attack](/images/4-EventParticipated/4.1-Event1/cloudfront-ddos.png)
+*CloudFront architecture for DDoS mitigation*
 
-### Event Experience
+---
 
-Joining this event was a valuable experience because the content was not limited to theory. It included practical examples of AI, cloud infrastructure, and product development. The sessions helped me understand how AI can be applied in different contexts, from data analysis assistants and automated workflows to enterprise-grade multi-agent systems.
+### Session 4: 36 Hours with LotusHacks – Building UTMorpho from Idea to Reality (Speaker: Team VIB)
 
-The most impressive message for me was "context is everything." Before the event, I often thought that using AI mainly depended on writing good prompts. After the event, I understood that prompts are only one part of the process. The quality of context, background data, and specific goals are what truly determine whether AI can provide useful support.
+This session recounted the journey of building **UTMorpho** during a 36-hour Hackathon competition.
 
-The CloudFront session also expanded my view of cloud infrastructure. I realized that a CDN service can play an important role in the overall architecture, from improving page load speed and reducing origin costs to increasing security and reliability.
+UTMorpho is an AI Agent capable of converting natural language descriptions into user interfaces (UI) and supporting direct editing via a **WYSIWYG** canvas. This solution significantly reduces the need to continuously rewrite prompts when adjusting designs.
 
-In addition, the UTMorpho case study from LotusHacks was inspiring because it showed the product-building mindset in action. Building from idea to demo within 36 hours highlighted the importance of teamwork, problem definition, and feature prioritization.
+**Lessons from the Product Development Journey:**
+- Valuable ideas often originate from daily work pain points.
+- In high-pressure environments, team coordination and mutual understanding matter as much as individual technical skills.
+- Correctly identifying the problem and focusing on building an **MVP (Minimum Viable Product)** is the decisive factor for project success.
 
-#### Some Photos From The Event
+![Architecture](/images/4-EventParticipated/4.1-Event1/utmorpho-architecture.png)
+*System architecture of UTMorpho*
 
-![AWS Community Day 2026](/images/4-EventParticipated/4.1-Event1/event1.jpg)
-*AWS Community Day 2026 Event Photo*
+---
+
+### Session 5: Deep Dive Talk – How LLM Actually Works? (Speaker: Dao Duc)
+
+This session took a deep dive into the inner workings of **Large Language Models (LLMs)**, with a particular focus on their **non-deterministic** nature.
+
+Even when setting **Temperature = 0**, the model can still produce varying outputs due to:
+- Floating-point computation effects on GPU hardware
+- **Batching** techniques in cloud infrastructure
+
+**Recommendations for deploying AI in Production:**
+- Use **Temperature = 0.1**
+- Apply **Majority Voting** techniques
+- Prioritize structured outputs (**JSON Mode**)
+- Implement **Guardrails** to control output quality and system safety
+
+![The role of Temperature, Top-P, and Top-K](/images/4-EventParticipated/4.1-Event1/llm-temperature.png)
+*The impact of the Temperature parameter on LLMs*
+
+---
+
+### Session 6: Enterprise-Grade Multi-Agent System – The Case of Startup Credit Scoring (Speaker: Cat Vy)
+
+The final session presented a **Multi-Agent System** model for startup credit evaluation.
+
+Since startups typically lack credit history and collateral, VPBank built a **Virtual Credit Committee** comprising multiple AI Agents, each handling a specialized role:
+
+| Agent | Responsibility |
+|---|---|
+| Financial Analyst | Financial data analysis |
+| Market Assessor | Market evaluation |
+| Team Evaluator | Founding team assessment |
+| Risk Manager | Risk governance |
+| Compliance Officer | Regulatory compliance checks |
+
+**Results Achieved:**
+- Application review time reduced from **2–3 weeks** to **2–4 hours**
+- Operational costs reduced by approximately **95%**
+- Approval rate **doubled**
+
+Dividing tasks into independent specialized Agents enables parallel processing, improving both accuracy and decision-making efficiency.
 
 ![Virtual credit committee architecture](/images/4-EventParticipated/4.1-Event1/virtual-credit-committee.png)
 *Multi-Agent architecture in the Virtual Credit Committee system*
@@ -114,13 +124,41 @@ In addition, the UTMorpho case study from LotusHacks was inspiring because it sh
 ![Proposed Deployment Approach](/images/4-EventParticipated/4.1-Event1/deployment-approach.png)
 *Deployment approach for the AgentCore system on AWS*
 
-![Why CloudFront is better equipped for volumetric attack](/images/4-EventParticipated/4.1-Event1/cloudfront-ddos.png)
-*CloudFront architecture for DDoS mitigation*
+---
 
-![Architecture](/images/4-EventParticipated/4.1-Event1/utmorpho-architecture.png)
-*System architecture of UTMorpho*
+## 3. Key Highlights and Lessons Learned
 
-![The role of Temperature, Top-P, and Top-K](/images/4-EventParticipated/4.1-Event1/llm-temperature.png)
-*The impact of the Temperature parameter on LLMs*
+### On AI
 
-> Overall, the event helped me better understand how AI, cloud infrastructure, and product thinking can be combined to solve real-world problems. It also motivated me to continue learning more about AI engineering, cloud architecture, and multi-agent systems.
+Model effectiveness depends heavily on the quality of the provided context. Clearly defining goals, input data, constraints, and expected outputs helps AI deliver more accurate responses. Additionally, since LLMs still exhibit instability, real-world systems need to be designed with testing, monitoring, and result validation mechanisms.
+
+### On Cloud Architecture
+
+Amazon CloudFront not only accelerates access speeds but also plays an important role in performance optimization, cost control, and enhanced system security.
+
+### On Product Development
+
+The Hackathon environment demonstrated the importance of quickly building a Minimum Viable Product (MVP), continuously iterating based on real feedback, rather than pursuing a perfect solution from day one.
+
+---
+
+## 4. Plans to Apply to Study and Work
+
+Following the event, I plan to apply the knowledge gained to my learning and personal development:
+
+1. **Change how I use AI:** Focus on building rich context rather than only optimizing prompts, improving efficiency in learning, research, and programming.
+
+2. **Develop personal AI workflows:** Build workflows for automatic note-taking, document summarization, data analysis support, and personal knowledge management.
+
+3. **Deepen Cloud expertise:** Continue studying Amazon CloudFront and Multi-Agent System architectures to build AI solutions capable of handling complex enterprise problems.
+
+4. **Design LLM control mechanisms:** When integrating LLMs into real projects, prioritize designing cross-validation, monitoring, and result evaluation mechanisms to ensure accuracy, stability, and system safety.
+
+---
+
+### Some Photos From The Event
+
+![AWS Community Day 2026](/images/4-EventParticipated/4.1-Event1/event1.jpg)
+*AWS Community Day 2026 Event Photo*
+
+Overall, the event helped me better understand how AI, cloud infrastructure, and product thinking can be combined to solve real-world problems. It also motivated me to continue learning more about AI engineering, cloud architecture, and multi-agent systems in the future.

@@ -1,7 +1,7 @@
 ---
 title: "Triển khai CI/CD Frontend với GitHub Actions"
 menuTitle: "Triển khai CI/CD Frontend với GitHub Actions"
-date: 2026-05-01
+date : 2026-07-09 
 weight: 8
 chapter: false
 pre: " <b> 5.8. </b> "

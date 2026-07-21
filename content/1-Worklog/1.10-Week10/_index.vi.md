@@ -21,7 +21,7 @@ pre: " <b> 1.10. </b> "
 | 3 | - Thiết lập Launch Template chi tiết cho máy chủ EC2 Backend, bao gồm lựa chọn AMI, Instance Type, Key Pair và Security Group tương ứng. | 23/06/2026 | 24/06/2026 | <https://000029.awsstudygroup.com/> |
 | 4 | - Khởi tạo Auto Scaling Group (ASG) tích hợp trong VPC, cấu hình phạm vi triển khai trên 2 Availability Zones thuộc Private Subnets. | 24/06/2026 | 25/06/2026 | <https://000030.awsstudygroup.com/> |
 | 5 | - Cấu hình Target Tracking Scaling Policy với chỉ số giám sát trung bình CPU vượt quá 70% để kích hoạt quá trình tự động mở rộng. | 25/06/2026 | 25/06/2026 | <https://000036.awsstudygroup.com/> |
-| 6 | - Kiểm tra sơ bộ hoạt động khởi tạo máy chủ tự động của ASG và liên kết với Application Load Balancer (ALB). | 26/06/2026 | 26/06/2026 | N/A |
+| 6 | - Kiểm tra sơ bộ hoạt động khởi tạo máy chủ tự động của ASG và liên kết với Application Load Balancer (ALB). | 26/06/2026 | 26/06/2026 |  |
 
 ### Kết quả đạt được tuần 10:
 
