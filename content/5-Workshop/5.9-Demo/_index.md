@@ -7,8 +7,6 @@ chapter: false
 pre: " <b> 5.9. </b> "
 ---
 
-# System Demo
-
 The video below demonstrates the complete workflow of the system after full deployment on AWS, including the core application features.
 
 ---

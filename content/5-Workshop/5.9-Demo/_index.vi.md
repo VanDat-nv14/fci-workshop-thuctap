@@ -7,8 +7,6 @@ chapter: false
 pre: " <b> 5.9. </b> "
 ---
 
-# Demo Hệ Thống
-
 Video dưới đây minh họa toàn bộ luồng hoạt động của hệ thống sau khi triển khai hoàn chỉnh trên AWS, bao gồm các tính năng chính của ứng dụng.
 
 ---
